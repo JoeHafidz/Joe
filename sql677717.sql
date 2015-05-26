@@ -116,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `tb_upload_so` (
 -- Struktur dari tabel `tb_userid`
 --
 
-CREATE TABLE IF NOT EXISTS `tb_userid` (
+CREATE TABLE IF NOT EXISTS `tb_user` (
   `id_user` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
