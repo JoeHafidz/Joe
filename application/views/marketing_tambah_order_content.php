@@ -5,24 +5,18 @@
 
     <div class="form-group">
       <label class="control-label col-sm-2" for="email">No SO:</label>
-      <div class="col-xs-2">
         <input type="email" class="form-control" id="email" placeholder="">
-      </div>
     </div>
 
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">ID SO:</label>
-      <div class="col-xs-2">          
         <input type="password" class="form-control" id="pwd" placeholder="">
-      </div>
     </div>
 
 
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">ID SO:</label>
-      <div class="col-xs-2">          
         <input type="password" class="form-control" id="pwd" placeholder="">
-      </div>
     </div>
 
     <div class="form-group">        
