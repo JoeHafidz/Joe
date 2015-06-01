@@ -1,21 +1,34 @@
 <form method="post" action="<?php echo base_url(); ?>marketing/tambah_baru">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputFile">File input</label>
-    <input type="file" id="exampleInputFile">
-    <p class="help-block">Example block-level help text here.</p>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> Check me out
-    </label>
-  </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
+   
+   <div class="container">
+  <h2>SALES ORDER</h2>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">No SO:</label>
+      <div class="col-xs-2">
+        <input type="email" class="form-control" id="email" placeholder="">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">ID SO:</label>
+      <div class="col-xs-2">          
+        <input type="password" class="form-control" id="pwd" placeholder="">
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">ID SO:</label>
+      <div class="col-xs-2">          
+        <input type="password" class="form-control" id="pwd" placeholder="">
+      </div>
+    </div>
+
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+    
+  </form>

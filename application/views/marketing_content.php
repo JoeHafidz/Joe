@@ -1,4 +1,4 @@
-<a class="btn btn-default" href="<?php echo base_url(); ?>marketing/tambah_order" role="button">Tambah Order</a>
+<a class="btn btn-success" href="<?php echo base_url(); ?>marketing/tambah_order" role="button">Tambah Order</a>
 <table class="table">
 	<tr>
 		<td>No</td>
@@ -32,3 +32,4 @@
 	</tr>
 
 </table>
+

@@ -7,7 +7,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+                <a class="navbar-brand" class="text-center" href="index.html">Sistem Informasi Managemen Order Iklan Radio Rhema</a>
+                
             </div>
             
 
@@ -38,6 +39,27 @@
                         <li>
                             <a href="<?php echo base_url(); ?>main"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
+						<?php if ($leveluser == 'marketing' || $leveluser == 'superadmin') { ?>
+						<li>
+                            <a href="<?php echo base_url(); ?>marketing"><i class="fa fa-briefcase fa-fw"></i> Marketing</a>
+                        </li>
+						<?php } else if ($leveluser == 'keuangan' || $leveluser == 'superadmin') { ?>
+						<li>
+                            <a href="<?php echo base_url(); ?>keuangan"><i class="fa fa-dashboard fa-fw"></i> Admin/Keuangan</a>
+                        </li>
+						<?php } else if ($leveluser == 'produksi' || $leveluser == 'superadmin') { ?>
+						<li>
+                            <a href="<?php echo base_url(); ?>produksi"><i class="fa fa-dashboard fa-fw"></i> Produksi</a>
+                        </li>
+						<?php } else if ($leveluser == 'penyiaran' || $leveluser == 'superadmin') { ?>
+						<li>
+                            <a href="<?php echo base_url(); ?>penyiaran"><i class="fa fa-dashboard fa-fw"></i> Penyiaran</a>
+                        </li>
+						<?php } else if ($leveluser == 'klien' || $leveluser == 'superadmin') { ?>
+						<li>
+                            <a href="<?php echo base_url(); ?>klien"><i class="fa fa-dashboard fa-fw"></i> Klien</a>
+                        </li>
+						<?php } ?>
                         <li>
                             <a href="<?php echo base_url(); ?>main/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
