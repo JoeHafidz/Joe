@@ -43,19 +43,19 @@
 						<li>
                             <a href="<?php echo base_url(); ?>marketing"><i class="fa fa-briefcase fa-fw"></i> Marketing</a>
                         </li>
-						<?php } else if ($leveluser == 'keuangan' || $leveluser == 'superadmin') { ?>
+						<?php }  if ($leveluser == 'keuangan' || $leveluser == 'superadmin') { ?>
 						<li>
                             <a href="<?php echo base_url(); ?>keuangan"><i class="fa fa-dashboard fa-fw"></i> Admin/Keuangan</a>
                         </li>
-						<?php } else if ($leveluser == 'produksi' || $leveluser == 'superadmin') { ?>
+						<?php }  if ($leveluser == 'produksi' || $leveluser == 'superadmin') { ?>
 						<li>
                             <a href="<?php echo base_url(); ?>produksi"><i class="fa fa-dashboard fa-fw"></i> Produksi</a>
                         </li>
-						<?php } else if ($leveluser == 'penyiaran' || $leveluser == 'superadmin') { ?>
+						<?php }  if ($leveluser == 'penyiaran' || $leveluser == 'superadmin') { ?>
 						<li>
                             <a href="<?php echo base_url(); ?>penyiaran"><i class="fa fa-dashboard fa-fw"></i> Penyiaran</a>
                         </li>
-						<?php } else if ($leveluser == 'klien' || $leveluser == 'superadmin') { ?>
+						<?php }  if ($leveluser == 'klien' || $leveluser == 'superadmin') { ?>
 						<li>
                             <a href="<?php echo base_url(); ?>klien"><i class="fa fa-dashboard fa-fw"></i> Klien</a>
                         </li>
