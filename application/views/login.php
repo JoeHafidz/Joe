@@ -23,6 +23,7 @@
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
 								<button type="submit" class="btn btn-lg btn-success btn-block">Login</button>
+                                <button type="submit" class="btn btn-lg btn-success btn-block">Daftar</button>
                             </fieldset>
                         </form>
                     </div>

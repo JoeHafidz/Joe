@@ -28,6 +28,12 @@ class Marketing extends CI_controller
 	//	$this->mCreate->add_post();
 		redirect('marketing','refresh');
 	}
-	
+	function simpan_sales_order(){		
+		$session_data = $this->session->userdata('login');
+		$data['user_login'] = $session_data;
+		$data['username'] = $session_data[0]['username'];
+		$data['leveluser'] = $session_data[0]['level_user'];
+		$this->load->view('marketing_simpan_sales_order',$data);
+	}
 }
 ?>

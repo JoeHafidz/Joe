@@ -7,7 +7,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" class="text-center" href="index.html">Sistem Informasi Managemen Order Iklan Radio Rhema</a>
+                <a class="navbar-brand text-center" href="index.html">Sistem Informasi Managemen Order Iklan Radio Rhema</a>
                 
             </div>
             
