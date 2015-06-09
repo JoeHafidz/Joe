@@ -10,5 +10,10 @@ class mView extends CI_Model
         $result = $this->db->query($query,$parameter);
         return $result->result_array();
     }
+    function check_new_order(){
+    	$query =  "SELECT AUTO_INCREMENT as order_so FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'sql677717' AND TABLE_NAME = 'tb_salesorder'"; //table schema digati ke nama tabel lokal klo dbkin asline
+		$result = $this->db->query($query);
+		return $result->result_array();
+    }
 }
 ?>

@@ -8,7 +8,8 @@
         <div id="page-wrapper">
             <div class="container-fluid">
                 <!-- Page Content -->
-                <?php $this->load->view('marketing_content'); ?>
+                <br>
+                <?php $this->load->view('keuangan/keuangan_content'); ?>
             </div>
         </div>
 </div>

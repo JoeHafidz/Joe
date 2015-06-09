@@ -2,7 +2,7 @@
 /**
 * 
 */
-class Keuangan extends CI_controller
+class Penyiaran extends CI_controller
 {
 	
 	function __construct()
@@ -15,8 +15,7 @@ class Keuangan extends CI_controller
 		$data['user_login'] = $session_data;
 		$data['username'] = $session_data[0]['username'];
 		$data['leveluser'] = $session_data[0]['level_user'];
-		$this->load->view('keuangan/keuangan',$data);
+		$this->load->view('penyiaran',$data);
 	}
-	
 }
 ?>

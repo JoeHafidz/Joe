@@ -41,23 +41,23 @@
                         </li>
 						<?php if ($leveluser == 'marketing' || $leveluser == 'superadmin') { ?>
 						<li>
-                            <a href="<?php echo base_url(); ?>marketing"><i class="fa fa-briefcase fa-fw"></i> Marketing</a>
+                            <a href="<?php echo base_url(); ?>marketing"><i class="fa fa-maxcdn fa-fw"></i> Marketing</a>
                         </li>
 						<?php }  if ($leveluser == 'keuangan' || $leveluser == 'superadmin') { ?>
 						<li>
-                            <a href="<?php echo base_url(); ?>keuangan"><i class="fa fa-dashboard fa-fw"></i> Admin/Keuangan</a>
+                            <a href="<?php echo base_url(); ?>keuangan"><i class="fa fa-briefcase fa-fw"></i> Admin/Keuangan</a>
                         </li>
 						<?php }  if ($leveluser == 'produksi' || $leveluser == 'superadmin') { ?>
 						<li>
-                            <a href="<?php echo base_url(); ?>produksi"><i class="fa fa-dashboard fa-fw"></i> Produksi</a>
+                            <a href="<?php echo base_url(); ?>produksi"><i class="fa fa-play-circle fa-fw"></i> Produksi</a>
                         </li>
 						<?php }  if ($leveluser == 'penyiaran' || $leveluser == 'superadmin') { ?>
 						<li>
-                            <a href="<?php echo base_url(); ?>penyiaran"><i class="fa fa-dashboard fa-fw"></i> Penyiaran</a>
+                            <a href="<?php echo base_url(); ?>penyiaran"><i class="fa fa-bullhorn fa-fw"></i> Penyiaran</a>
                         </li>
 						<?php }  if ($leveluser == 'klien' || $leveluser == 'superadmin') { ?>
 						<li>
-                            <a href="<?php echo base_url(); ?>klien"><i class="fa fa-dashboard fa-fw"></i> Klien</a>
+                            <a href="<?php echo base_url(); ?>klien"><i class="fa fa-user fa-fw"></i> Klien</a>
                         </li>
 						<?php } ?>
                         <li>

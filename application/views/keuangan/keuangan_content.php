@@ -1,4 +1,4 @@
-<a class="btn btn-success" href="<?php echo base_url(); ?>marketing/tambah_order" role="button">Tambah Order</a>
+<a class="btn btn-success" href="<?php echo base_url(); ?>keuangan/tambah_order" role="button">Tambah Order</a>
 <table class="table" >
 	<tr>
 		<td class="text-center">Id Sales Order</td>

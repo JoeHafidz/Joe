@@ -8,10 +8,12 @@
         <div id="page-wrapper">
             <div class="container-fluid">
                 <!-- Page Content -->
-                <?php $this->load->view('keuangan_content'); ?>
+                <h1 class="page-header">Sales Order</h1>
+                <?php $this->load->view('marketing/marketing_tambah_order_content'); ?>
             </div>
         </div>
 </div>
 <?php $this->load->view('global/footer'); ?>
+
 </body>
 </html>
