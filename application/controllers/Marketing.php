@@ -15,6 +15,7 @@ class Marketing extends CI_controller
 		$data['user_login'] = $session_data;
 		$data['username'] = $session_data[0]['username'];
 		$data['leveluser'] = $session_data[0]['level_user'];
+		$data['order_so'] = $this->mView->show_all_sales_order();
 		$this->load->view('marketing/marketing',$data);
 	}
 	function tambah_order(){		

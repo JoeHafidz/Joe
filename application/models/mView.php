@@ -15,5 +15,10 @@ class mView extends CI_Model
 		$result = $this->db->query($query);
 		return $result->result_array();
     }
+    function show_all_sales_order(){
+        $query =  "SELECT * FROM tb_salesorder";
+        $result = $this->db->query($query);
+        return $result->result_array();    
+    }
 }
 ?>

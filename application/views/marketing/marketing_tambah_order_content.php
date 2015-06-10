@@ -1,4 +1,4 @@
-<form method="post" action="marketing/tambah_baru">
+<form method="post" action="<?php echo base_url(); ?>marketing/tambah_baru">
 
   <div class="form-group">
     <label>No Order</label>
@@ -59,7 +59,6 @@
     <label>Upload File</label>
     <input type="file" name="uploadfile[]">
   </div>
-
 
   <div class="form-group">
     <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
