@@ -14,19 +14,23 @@
 							<p><b>Materi Siar : <?php echo $detail_order[0]['materi_siar']; ?></b></p>	
 						</div>
 						<div class="panel-footer">
-						Status Approve
-							<form method="post" action="<?php echo base_url(); ?>keuangan/konfirmasi">
-								<select class="form-control">
+							Status Approve
+							<?php $statusapprove =  $detail_order[0]['approve'];
+							if ($statusapprove == '1') { ?>
+							 	<form method="post" action="<?php echo base_url(); ?>keuangan/konfirmasi">
+								<select class="form-control" name="status">
 									<option value="2">Setuju</option>
-									<option value="3">Tolak</option>
+									<option value="3">Tidak Setuju</option>
 								</select>
 								<br>
 								<textarea class="form-control" name="komen"></textarea>
 								<br>
 								<input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
-								<input type="hidden" name="soid" value="<?php echo $detail_order[0]['idso']; ?>">
+								<input type="hidden" name="so_id" value="<?php echo $detail_order[0]['idso']; ?>">
 								<button class="btn btn-outline btn-primary" type="submit">Save</button>
 							</form>
+							 <?php } else { $approve = $approve_status[0]['status']; if ($approve == 2) { echo "<b>"." : Setuju"."</b><br>"."Note : ".$approve_status[0]['komen'];?><br><a href="<?php echo base_url(); ?>keuangan/set_jadwal/<?php echo $detail_order[0]['idso'];?>" class="btn btn-outline btn-success">Set Jadwal</a> <?php } 
+							 else {echo "<b>"." : Tidak Setuju"."</b><br>"."Note : ".$approve_status[0]['komen'];}} ?>
 						</div>
 					</div>
 				</div>

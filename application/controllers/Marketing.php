@@ -32,7 +32,7 @@ class Marketing extends CI_controller
 		$this->load->view('marketing/marketing_tambah_order',$data);
 	}
 	function tambah_baru(){		
-		$this->mCreate->add_post();
+		$this->mCreate->add_sales_order();
 		redirect('marketing','refresh');
 	}
 	function order_detail(){

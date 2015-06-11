@@ -29,11 +29,15 @@ class Keuangan extends CI_controller
 
 		$order = $this->uri->segment(3);
 		$data['detail_order'] = $this->mView->detail_sales_order($order);
+		$data['approve_status'] = $this->mView->approve_status($order);
 		$this->load->view('keuangan/keuangan_detail_sales_order',$data);
 
 	}
 	function konfirmasi(){
-		
+		$order = $this->input->post('so_id');
+		$this->mCreate->konfrimasi_order();
+		$this->mUpdate->change_approve();
+		redirect('keuangan/order_detail/'.$order,'refresh');
 	}
 	
 }

@@ -27,5 +27,11 @@ class mView extends CI_Model
         $result = $this->db->query($query,$parameter);
         return $result->result_array();
     }
+    function approve_status($id){
+        $query = "SELECT * FROM tb_approve WHERE so_id = ?";
+        $parameter = array($id);
+        $result = $this->db->query($query,$parameter);
+        return $result->result_array();
+    }
 }
 ?>
