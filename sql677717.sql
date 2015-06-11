@@ -2,10 +2,10 @@
 -- version 3.5.5
 -- http://www.phpmyadmin.net
 --
--- Inang: sql6.freesqldatabase.com
--- Waktu pembuatan: 18 Mei 2015 pada 17.32
--- Versi Server: 5.5.43-0ubuntu0.14.04.1
--- Versi PHP: 5.3.28
+-- Host: sql6.freesqldatabase.com
+-- Generation Time: Jun 11, 2015 at 09:20 AM
+-- Server version: 5.5.43-0ubuntu0.14.04.1
+-- PHP Version: 5.3.28
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,18 +17,20 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Basis data: `sql677717`
+-- Database: `sql677717`
 --
+CREATE DATABASE `sql677717` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `sql677717`;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_approve`
+-- Table structure for table `tb_approve`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_approve` (
   `id_approve` int(11) NOT NULL AUTO_INCREMENT,
-  `status_approve` varchar(50) NOT NULL,
+  `soid` int(50) NOT NULL,
   `komen` text NOT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id_approve`)
@@ -37,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `tb_approve` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_jadwal_tayang`
+-- Table structure for table `tb_jadwal_tayang`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_jadwal_tayang` (
@@ -51,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `tb_jadwal_tayang` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_salesorder`
+-- Table structure for table `tb_salesorder`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_salesorder` (
@@ -70,24 +72,31 @@ CREATE TABLE IF NOT EXISTS `tb_salesorder` (
   `alamat_perusahaan` text NOT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`idso`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_status_so`
+-- Table structure for table `tb_status_so`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_status_so` (
   `id_status_so` int(11) NOT NULL AUTO_INCREMENT,
   `deskripsi` varchar(50) NOT NULL,
   PRIMARY KEY (`id_status_so`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `tb_status_so`
+--
+
+INSERT INTO `tb_status_so` (`id_status_so`, `deskripsi`) VALUES
+(1, 'ada di Admin');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_tayang`
+-- Table structure for table `tb_tayang`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_tayang` (
@@ -100,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `tb_tayang` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_upload_so`
+-- Table structure for table `tb_upload_so`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_upload_so` (
@@ -113,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `tb_upload_so` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_userid`
+-- Table structure for table `tb_user`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_user` (
@@ -122,7 +131,19 @@ CREATE TABLE IF NOT EXISTS `tb_user` (
   `password` varchar(50) NOT NULL,
   `level_user` varchar(50) NOT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `tb_user`
+--
+
+INSERT INTO `tb_user` (`id_user`, `username`, `password`, `level_user`) VALUES
+(1, 'superadmin', 'superadmin', 'superadmin'),
+(2, 'hendi', 'hendi', 'marketing'),
+(3, 'ari', 'ari', 'keuangan'),
+(4, 'via', 'via', 'produksi'),
+(5, 'yuli', 'yuli', 'penyiaran'),
+(6, 'rossi', 'rossi', 'klien');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

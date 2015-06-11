@@ -15,10 +15,17 @@ class mView extends CI_Model
 		$result = $this->db->query($query);
 		return $result->result_array();
     }
-    function show_all_sales_order(){
-        $query =  "SELECT * FROM tb_salesorder";
+    function semua_sales_order(){
+        $query =  "SELECT *,tb_status_so.deskripsi AS status_order FROM tb_salesorder 
+                    LEFT JOIN tb_status_so ON tb_salesorder.status_id = tb_status_so.id_status_so ORDER BY idso DESC";
         $result = $this->db->query($query);
         return $result->result_array();    
+    }
+    function detail_sales_order($id){
+        $query = "SELECT * FROM tb_salesorder WHERE idso = ?";
+        $parameter = array($id);
+        $result = $this->db->query($query,$parameter);
+        return $result->result_array();
     }
 }
 ?>

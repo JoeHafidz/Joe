@@ -11,6 +11,9 @@
     <script src="<?php echo base_url(); ?>assets/component/raphael/raphael-min.js"></script>
     <script src="<?php echo base_url(); ?>assets/component/morrisjs/morris.min.js"></script>
 
+    <script src="<?php echo base_url(); ?>assets/component/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/component/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+
     <!-- Custom Theme JavaScript -->
     <script src="<?php echo base_url(); ?>assets/js/sb-admin-2.js"></script>
 
@@ -22,4 +25,9 @@
             autoclose: "true", 
             todayBtn: true
         });
+    $(document).ready(function() {
+        $('#dataTable').DataTable({
+                responsive: true
+        });
+    });
     </script>

@@ -1,34 +1,36 @@
-<a class="btn btn-success" href="<?php echo base_url(); ?>keuangan/tambah_order" role="button">Tambah Order</a>
-<table class="table" >
+<br>
+<table class="table table-striped table-bordered table-hover dataTable no-footer" id="dataTable" role="grid" aria-describedby="dataTables">
+	<thead>
 	<tr>
-		<td class="text-center">Id Sales Order</td>
-		<td class="text-center">Tanggal Order</td>
-		<td class="text-center">Pemberi Order</td>
-		<td class="text-center">Perusahaan</td>
-		<td class="text-center">CRP</td>
-		<td class="text-center">Jenis Order</td>
-		<td class="text-center">Status</td>
+		<td>No</td>
+		<td>Sales Number</td>
+		<td>Pemberi Order</td>
+		<td>Tanggal Order</td>
+		<td>CRP</td>
+		<td>Status Order</td>
 	</tr>
+	</thead>
+	<tbody>
+	<?php $no = '1'; for ($i=0; $i <count($order_so) ; $i++) { ?>
 	<tr>
-		<td class="text-center">1</td>
-		<td class="text-center">1</td>
-		<td class="text-center">1</td>
-		<td class="text-center">1</td>
-		<td class="text-center">1</td>
-		<td class="text-center">1</td>
-		<td class="text-center">1</td>
-		
+		<td><?php echo $no; ?></td>
+		<td><a href = "<?php echo base_url(); ?>keuangan/order_detail/<?php echo $order_so[$i]['idso']; ?>"><?php echo $order_so[$i]['noso']; ?></a></td>
+		<td><?php echo $order_so[$i]['pemberi_order']; ?></td>
+		<td><?php echo $order_so[$i]['tanggal_order']; ?></td>
+		<td><?php echo $order_so[$i]['crp']; ?></td>
+		<td>
+		<?php 
+			$status = $order_so[$i]['status_id']; 
+			if ($status == 1) {
+				echo "Belum Disetujui";
+			} if ($status == 2) {
+				echo "Silahkan Masukkan Jadwal";
+			} if ($status == 3) {
+				echo "Tidak Disetujui";
+			} 
+		?>
+		</td>
 	</tr>
-	<tr>
-		<td class="text-center">2</td>
-		<td class="text-center">2</td>
-		<td class="text-center">2</td>
-		<td class="text-center">2</td>
-		<td class="text-center">2</td>
-		<td class="text-center">2</td>
-		<td class="text-center">2</td>
-		 
-	</tr>
-
+	<?php $no++;} ?>
+	</tbody>
 </table>
-

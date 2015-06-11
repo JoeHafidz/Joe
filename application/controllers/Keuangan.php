@@ -14,8 +14,26 @@ class Keuangan extends CI_controller
 		$session_data = $this->session->userdata('login');
 		$data['user_login'] = $session_data;
 		$data['username'] = $session_data[0]['username'];
+		$data['user_id'] = $session_data[0]['id_user'];
 		$data['leveluser'] = $session_data[0]['level_user'];
+		
+		$data['order_so'] = $this->mView->semua_sales_order();
 		$this->load->view('keuangan/keuangan',$data);
+	}
+	function order_detail(){
+		$session_data = $this->session->userdata('login');
+		$data['user_login'] = $session_data;
+		$data['username'] = $session_data[0]['username'];
+		$data['user_id'] = $session_data[0]['id_user'];
+		$data['leveluser'] = $session_data[0]['level_user'];
+
+		$order = $this->uri->segment(3);
+		$data['detail_order'] = $this->mView->detail_sales_order($order);
+		$this->load->view('keuangan/keuangan_detail_sales_order',$data);
+
+	}
+	function konfirmasi(){
+		
 	}
 	
 }

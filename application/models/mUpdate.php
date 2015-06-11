@@ -4,17 +4,21 @@
 */
 class mUpdate extends CI_Model
 {
-	function edit_post(){
-		$datenow = date('Y-m-d');
+	function edit_sales_order(){
 		$data = array(
-			'title' => $this->input->post('title'),
-			'content' => $this->input->post('content'),
-			'date' => $datenow,
-			'idcategory' => $this->input->post('category'),
-			'iduser' => $this->input->post('user_id')
+			'noso'				=> $this->input->post('noso'),
+			'tanggal_order' 	=> $this->input->post('tanggal_order'),
+			'pemberi_order' 	=> $this->input->post('pemberi_order'),
+			'perusahaan' 		=> $this->input->post('perusahaan'),
+			'alamat_perusahaan'	=> $this->input->post('alamat_perusahaan'),
+			'crp' 				=> $this->input->post('crp'),
+			'jenis_order' 		=> $this->input->post('jenis_order'),
+			'materi_siar' 		=> $this->input->post('materi_siar'),
+			'status_id' 		=> '1',
+			'user_id' 			=> $this->input->post('user_id')
 			);
-		$this->db->where('post_id', $this->input->post('post_id'));
-		$this->db->update('ma_post', $data);
+		$this->db->where('idso', $this->input->post('idso'));
+		$this->db->update('tb_salesorder', $data);
 	}
 }
 ?>

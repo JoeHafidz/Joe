@@ -4,15 +4,11 @@
 */
 class mDelete extends CI_Model
 {
-	function delete_post($id){
-		$query = "DELETE FROM ma_post WHERE post_id = ?";
+	function delete_sales_order($id){
+		$query = "DELETE FROM tb_salesorder WHERE idso = ?";
 		$parameter = array($id);
 		return $result = $this->db->query($query,$parameter);
 	}
-	function delete_category($id){
-		$query = "DELETE FROM ma_category WHERE category_id = ?";
-		$parameter = array($id);
-		return $result = $this->db->query($query,$parameter);
-	}
+	
 }
 ?>
