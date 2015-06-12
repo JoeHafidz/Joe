@@ -71,4 +71,24 @@ class Marketing extends CI_controller
 	}
 	
 }
+
+// $name_array = array();
+// 				$count = count($_FILES['userfile']['size']);
+// 				foreach($_FILES as $key=>$value)
+// 				for($s=0; $s<=$count-1; $s++) {
+// 					$_FILES['userfile']['name']		= $value['name'][$s];
+// 					$_FILES['userfile']['type']    	= $value['type'][$s];
+// 					$_FILES['userfile']['tmp_name'] = $value['tmp_name'][$s];
+// 					$_FILES['userfile']['error']    = $value['error'][$s];
+// 					$_FILES['userfile']['size']    	= $value['size'][$s];  
+// 					$config['upload_path'] 			= '../images/mainslide/';
+// 					$config['allowed_types'] 		= 'jpg|jpeg|png';
+// 					$this->load->library('upload', $config);
+// 					$this->upload->do_upload();
+// 					$data = $this->upload->data();
+// 					$name_array[] = $data['file_name'];
+// 				}
+// 				$names= implode(',', $name_array);
+//             $this->main_slider_model->save_file($names);
+//             redirect('other/main_slider/','refresh');	
 ?>
