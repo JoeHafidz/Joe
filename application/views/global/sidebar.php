@@ -59,7 +59,19 @@
 						<li>
                             <a href="<?php echo base_url(); ?>klien"><i class="fa fa-user fa-fw"></i> Klien</a>
                         </li>
-						<?php } ?>
+						<?php } if ($leveluser == 'superadmin') { ?>
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Setting<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li>
+                                    <a href="<?php echo base_url(); ?>user">Users</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url(); ?>status">Status</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <?php } ?>
                         <li>
                             <a href="<?php echo base_url(); ?>main/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>

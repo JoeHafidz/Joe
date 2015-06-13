@@ -2,7 +2,7 @@
 /**
 * 
 */
-class Produksi extends CI_controller
+class User extends CI_controller
 {
 	
 	function __construct()
@@ -15,8 +15,11 @@ class Produksi extends CI_controller
 		$data['user_login'] = $session_data;
 		$data['username'] = $session_data[0]['username'];
 		$data['leveluser'] = $session_data[0]['level_user'];
-		$this->load->view('produksi/produksi',$data);
+		$this->load->view('main',$data);
 	}
-
+	function logout(){
+		$this->session->sess_destroy();
+		redirect('login','refresh');
+	}
 }
 ?>

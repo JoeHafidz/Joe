@@ -4,6 +4,17 @@
 */
 class mCreate extends CI_Model
 {
+	function register_new(){
+		$data = array(
+			'nama'				=> $this->input->post('nama'),
+			'perusahaan' 		=> $this->input->post('perusahaan'),
+			'alamat_perusahaan'	=> $this->input->post('alamat_perusahaan'),
+			'username' 			=> $this->input->post('username'),
+			'password' 			=> $this->input->post('password'),
+			'level_user' 		=> 'klien'
+			);
+		$this->db->insert('tb_user',$data);
+	}
 	function add_sales_order(){
 		$data = array(
 			'noso'				=> $this->input->post('noso'),
@@ -28,6 +39,15 @@ class mCreate extends CI_Model
 			'user_id' 				=> $this->input->post('user_id')
 			);
 		$this->db->insert('tb_approve',$data);
+	}
+	function simpan_jadwal_tayang(){
+		$data = array(
+			'tanggal_jadwal'				=> $this->input->post('tanggal_jadwal'),
+			'waktu_jadwal' 				=> $this->input->post('waktu'),
+			'so_id' 				=> $this->input->post('so_id'),
+			'user_id' 				=> $this->input->post('user_id')
+			);
+		$this->db->insert('tb_jadwal_tayang',$data);	
 	}
 }
 ?>

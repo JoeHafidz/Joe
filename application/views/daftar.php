@@ -13,17 +13,25 @@
                         <h3 class="panel-title"><?php echo $error; ?></h3>
                     </div>
                     <div class="panel-body">
-                        <form method="post" action="<?php echo base_url(); ?>login/check_login">
+                        <form method="post" action="<?php echo base_url(); ?>daftar/register_new">
                             <fieldset>
+                            	<div class="form-group">
+                                    <input class="form-control" placeholder="Nama" name="nama" type="text" autofocus>
+                                </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Username" name="username" type="text" autofocus>
+                                    <input class="form-control" placeholder="Perusahaan" name="perusahaan" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Alamat Perusahaan" name="alamat_perusahaan" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Username" name="username" type="text">
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Password" name="password" type="password" value="">
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-								<button type="submit" class="btn btn-lg btn-success btn-block">Login</button>
-                                <a href="<?php echo base_url(); ?>daftar" class="btn btn-lg btn-success btn-block">Daftar </a>
+								<button type="submit" class="btn btn-lg btn-success btn-block">Register</button>
                             </fieldset>
                         </form>
                     </div>

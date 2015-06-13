@@ -4,10 +4,10 @@
           <div class="panel panel-success">
           <div class="panel-heading">Input Jadwal Siar</div>
             <div class="panel-body">
-                <form method="post" action="<?php echo base_url(); ?>keuangan/konfirmasi">
+                <form method="post" action="<?php echo base_url(); ?>keuangan/simpan_jadwal">
                   <div class="form-group">
                     <label>Tanggal</label>
-                    <input class="form-control" name="">
+                    <input class="form-control datepicker" name="tanggal_jadwal">
                   </div>
                   <div class="form-group">
                     <label>Waktu</label>

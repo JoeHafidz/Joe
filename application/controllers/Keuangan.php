@@ -53,6 +53,11 @@ class Keuangan extends CI_controller
 		$this->load->view('keuangan/keuangan_set_jadwal',$data);
 		
 	}
+	function simpan_jadwal(){
+		$order = $this->input->post('so_id');
+		$this->mCreate->konfrimasi_order();
+		redirect('keuangan/order_detail/'.$order,'refresh');
+	}
 	
 }
 ?>
