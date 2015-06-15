@@ -27,6 +27,8 @@
 				echo "Silahkan Masukkan Jadwal";
 			} if ($status == 3) {
 				echo "Tidak Disetujui";
+			} if ($status == 4) {
+				echo "Jadwal Ada";
 			} 
 		?>
 		</td>

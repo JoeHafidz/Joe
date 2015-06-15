@@ -128,6 +128,7 @@
                   </div>
 
                 <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+                <input type="hidden" name="status" value="4">
                 <input type="hidden" name="so_id" value="<?php echo $detail_order[0]['idso']; ?>">
                 <button class="btn btn-outline btn-primary" type="submit">Save</button>
               </form> 
@@ -140,7 +141,26 @@
           <div class="panel panel-success">
           <div class="panel-heading">Jadwal Siar</div>
             <div class="panel-body">
-              
+            <table class="table table-striped table-bordered table-hover">
+              <thead>
+                      <tr>
+                        <th>Tanggal</th>
+                        <th>Jam</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php for ($i=0; $i <count($jadwal_tayang) ; $i++) { ?>
+                        <tr>
+                          <td><?php $date=date_create($jadwal_tayang[$i]['tanggal_jadwal']); echo date_format($date,"d M Y"); ?>
+                             <br>
+                             <a href="<?php echo base_url(); ?>keuangan/delete_jadwal/<?php echo $jadwal_tayang[$i]['id_jadwal']."jadwal".$detail_order[0]['idso']; ?>" class="btn btn-danger btn-circle" title="Hapus Jadwal"><i class="fa fa-trash-o"></i></a>
+                          </td>
+                         <td><?php $pisah_jam = explode(",", $jadwal_tayang[$i]['waktu_jadwal']); for ($a=0; $a < count($pisah_jam) ; $a++) { 
+                          echo $pisah_jam[$a]."<br>";} ?></td>
+                        </tr>
+                      <?php } ?>
+                    </tbody>
+                    </table>
             </div></div>
         </div>
       </div>

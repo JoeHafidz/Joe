@@ -44,6 +44,8 @@ class Marketing extends CI_controller
 
 		$order = $this->uri->segment(3);
 		$data['detail_order'] = $this->mView->detail_sales_order($order);
+		$data['jadwal_tayang'] = $this->mView->lihat_jadwal($order);
+		$data['detail_status'] = $this->mView->lihat_status_order($order);
 		$this->load->view('marketing/marketing_detail_sales_order',$data);
 
 	}

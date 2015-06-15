@@ -21,9 +21,9 @@
 
     <script type="text/javascript">
     $('.datepicker').datepicker({
+            startDate : "0d",
             format: "yyyy-mm-dd",
-            autoclose: "true", 
-            todayBtn: true
+            autoclose: "true"
         });
     $(document).ready(function() {
         $('#dataTable').DataTable({

@@ -41,9 +41,11 @@ class mCreate extends CI_Model
 		$this->db->insert('tb_approve',$data);
 	}
 	function simpan_jadwal_tayang(){
+		$waktu = $this->input->post('waktu');
+		$waktu_tayang = implode(',', $waktu);
 		$data = array(
-			'tanggal_jadwal'				=> $this->input->post('tanggal_jadwal'),
-			'waktu_jadwal' 				=> $this->input->post('waktu'),
+			'tanggal_jadwal'		=> $this->input->post('tanggal_jadwal'),
+			'waktu_jadwal' 			=> $waktu_tayang,
 			'so_id' 				=> $this->input->post('so_id'),
 			'user_id' 				=> $this->input->post('user_id')
 			);

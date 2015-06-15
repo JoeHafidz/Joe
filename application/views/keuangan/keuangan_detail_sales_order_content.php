@@ -31,21 +31,13 @@
 								</tr>
 								<tr>
 									<td>Jenis Order</td>
-									<td><?php echo $detail_order[0]['jenis_order']; ?></td>
+									<td><?php $jenis_order = ucfirst($detail_order[0]['jenis_order']); echo $jenis_order;  ?></td>
 								</tr>
 								<tr>
 									<td>Materi Siar</td>
-									<td><?php echo $detail_order[0]['materi_siar']; ?></td>
+									<td><?php $materi_siar = ucfirst($detail_order[0]['materi_siar']); echo $materi_siar; ?></td>
 								</tr>
 							</table>
-							<!-- <p><b>No Order : <?php //echo $detail_order[0]['noso']; ?></b></p>
-							<p><b>Tanggal Order : <?php //$date=date_create($detail_order[0]['tanggal_order']); echo date_format($date,"d M Y"); ?></b></p>
-							<p><b>Pemberi Order : <?php //echo $detail_order[0]['pemberi_order']; ?></b></p>
-							<p><b>Perusahaan 	: <?php //echo $detail_order[0]['perusahaan']; ?></b></p>
-							<p><b>Alamat Perusahaan : <?php //echo $detail_order[0]['alamat_perusahaan']; ?></b></p>
-							<p><b>CRP : <?php //echo $detail_order[0]['crp']; ?></b></p>
-							<p><b>Jenis Order : <?php //echo $detail_order[0]['jenis_order']; ?></b></p>
-							<p><b>Materi Siar : <?php //echo $detail_order[0]['materi_siar']; ?></b></p>	 -->
 						</div>
 						<div class="panel-footer">
 							Status Approve
@@ -72,7 +64,23 @@
 					<div class="panel panel-success">
 					<div class="panel-heading">Jadwal Siar</div>
 						<div class="panel-body">
-							
+							<table class="table table-striped table-bordered table-hover">
+							<thead>
+				              <tr>
+				                <th>Tanggal</th>
+				                <th>Jam</th>
+				              </tr>
+				            </thead>
+				            <tbody>
+				              <?php for ($i=0; $i <count($jadwal_tayang) ; $i++) { ?>
+				                <tr>
+				               	 <td><?php $date=date_create($jadwal_tayang[$i]['tanggal_jadwal']); echo date_format($date,"d M Y"); ?></td>
+				               	 <td><?php $pisah_jam = explode(",", $jadwal_tayang[$i]['waktu_jadwal']); for ($a=0; $a < count($pisah_jam) ; $a++) { 
+				               	 	echo $pisah_jam[$a]."<br>";} ?></td>
+				              	</tr>
+				              <?php } ?>
+				            </tbody>
+				            </table>
 						</div></div>
 				</div>
 			</div>
