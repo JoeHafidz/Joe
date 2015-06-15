@@ -4,14 +4,48 @@
 					<div class="panel panel-success">
 					<div class="panel-heading">Detail Order</div>
 						<div class="panel-body">
-							<p><b>No Order : <?php echo $detail_order[0]['noso']; ?></b></p>
-							<p><b>Tanggal Order : <?php $date=date_create($detail_order[0]['tanggal_order']); echo date_format($date,"d M Y"); ?></b></p>
-							<p><b>Pemberi Order : <?php echo $detail_order[0]['pemberi_order']; ?></b></p>
-							<p><b>Perusahaan 	: <?php echo $detail_order[0]['perusahaan']; ?></b></p>
-							<p><b>Alamat Perusahaan : <?php echo $detail_order[0]['alamat_perusahaan']; ?></b></p>
-							<p><b>CRP : <?php echo $detail_order[0]['crp']; ?></b></p>
-							<p><b>Jenis Order : <?php echo $detail_order[0]['jenis_order']; ?></b></p>
-							<p><b>Materi Siar : <?php echo $detail_order[0]['materi_siar']; ?></b></p>	
+							<table class="table">
+								<tr>
+									<td>No Order</td>
+									<td><?php echo $detail_order[0]['noso']; ?></td>
+								</tr>
+								<tr>
+									<td>Tanggal Order</td>
+									<td><?php $date=date_create($detail_order[0]['tanggal_order']); echo date_format($date,"d M Y"); ?></td>
+								</tr>
+								<tr>
+									<td>Pemberi Order</td>
+									<td><?php echo $detail_order[0]['pemberi_order']; ?></td>
+								</tr>
+								<tr>
+									<td>Perusahaan</td>
+									<td><?php echo $detail_order[0]['perusahaan']; ?></td>
+								</tr>
+								<tr>
+									<td>Alamat Perusahaan</td>
+									<td><?php echo $detail_order[0]['alamat_perusahaan']; ?></td>
+								</tr>
+								<tr>
+									<td>CRP</td>
+									<td><?php echo $detail_order[0]['crp']; ?></td>
+								</tr>
+								<tr>
+									<td>Jenis Order</td>
+									<td><?php echo $detail_order[0]['jenis_order']; ?></td>
+								</tr>
+								<tr>
+									<td>Materi Siar</td>
+									<td><?php echo $detail_order[0]['materi_siar']; ?></td>
+								</tr>
+							</table>
+							<!-- <p><b>No Order : <?php //echo $detail_order[0]['noso']; ?></b></p>
+							<p><b>Tanggal Order : <?php //$date=date_create($detail_order[0]['tanggal_order']); echo date_format($date,"d M Y"); ?></b></p>
+							<p><b>Pemberi Order : <?php //echo $detail_order[0]['pemberi_order']; ?></b></p>
+							<p><b>Perusahaan 	: <?php //echo $detail_order[0]['perusahaan']; ?></b></p>
+							<p><b>Alamat Perusahaan : <?php //echo $detail_order[0]['alamat_perusahaan']; ?></b></p>
+							<p><b>CRP : <?php //echo $detail_order[0]['crp']; ?></b></p>
+							<p><b>Jenis Order : <?php //echo $detail_order[0]['jenis_order']; ?></b></p>
+							<p><b>Materi Siar : <?php //echo $detail_order[0]['materi_siar']; ?></b></p>	 -->
 						</div>
 						<div class="panel-footer">
 							Status Approve

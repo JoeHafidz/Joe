@@ -9,6 +9,11 @@ class mDelete extends CI_Model
 		$parameter = array($id);
 		return $result = $this->db->query($query,$parameter);
 	}
+	function delete_user($id){
+		$query = "DELETE FROM tb_user WHERE id_user = ?";
+		$parameter = array($id);
+		return $result = $this->db->query($query,$parameter);	
+	}
 	
 }
 ?>

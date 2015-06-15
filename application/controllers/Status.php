@@ -15,11 +15,23 @@ class Status extends CI_controller
 		$data['user_login'] = $session_data;
 		$data['username'] = $session_data[0]['username'];
 		$data['leveluser'] = $session_data[0]['level_user'];
-		$this->load->view('main',$data);
+
+		$data['show_status'] = $this->mView->show_status_data();
+		$this->load->view('status/status',$data);
 	}
-	function logout(){
-		$this->session->sess_destroy();
-		redirect('login','refresh');
+	function edit(){
+		$session_data = $this->session->userdata('login');
+		$data['user_login'] = $session_data;
+		$data['username'] = $session_data[0]['username'];
+		$data['leveluser'] = $session_data[0]['level_user'];
+
+		$idstatus = $this->uri->segment(3);
+		$data['edit_status'] = $this->mView->status_edit($idstatus);
+		$this->load->view('status/status_edit',$data);	
+	}
+	function edit_run(){
+		$this->mUpdate->edit_status();
+		redirect('status','refresh');
 	}
 }
 ?>

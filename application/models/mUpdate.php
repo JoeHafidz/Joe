@@ -28,5 +28,12 @@ class mUpdate extends CI_Model
 		$this->db->where('idso', $this->input->post('so_id'));
 		$this->db->update('tb_salesorder', $data);
 	}
+	function edit_status(){
+		$data = array(
+			'deskripsi'				=> $this->input->post('deskripsi')
+			);
+		$this->db->where('id_status_so', $this->input->post('id_status_so'));
+		$this->db->update('tb_status_so', $data);	
+	}
 }
 ?>

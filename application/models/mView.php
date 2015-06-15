@@ -11,7 +11,8 @@ class mView extends CI_Model
         return $result->result_array();
     }
     function check_new_order(){
-    	$query =  "SELECT AUTO_INCREMENT as order_so FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'sql677717' AND TABLE_NAME = 'tb_salesorder'"; //table schema digati ke nama tabel lokal klo dbkin asline
+    	// $query =  "SELECT AUTO_INCREMENT as order_so FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'sql677717' AND TABLE_NAME = 'tb_salesorder'"; //table schema digati ke nama tabel lokal klo dbkin asline
+        $query =  "SELECT AUTO_INCREMENT as order_so FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'dbradio' AND TABLE_NAME = 'tb_salesorder'"; //table schema digati ke nama tabel lokal klo dbkin asline
 		$result = $this->db->query($query);
 		return $result->result_array();
     }
@@ -32,6 +33,22 @@ class mView extends CI_Model
         $parameter = array($id);
         $result = $this->db->query($query,$parameter);
         return $result->result_array();
+    }
+    function show_status_data(){
+        $query = "SELECT * FROM tb_status_so";
+        $result = $this->db->query($query);
+        return $result->result_array();   
+    }
+    function show_user_data(){
+        $query = "SELECT * FROM tb_user";
+        $result = $this->db->query($query);
+        return $result->result_array();   
+    }
+    function status_edit($id){
+        $query = "SELECT * FROM tb_status_so WHERE id_status_so = ?";
+        $parameter = array($id);
+        $result = $this->db->query($query,$parameter);
+        return $result->result_array();   
     }
 }
 ?>

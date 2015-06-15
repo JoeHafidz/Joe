@@ -11,7 +11,7 @@ class mCreate extends CI_Model
 			'alamat_perusahaan'	=> $this->input->post('alamat_perusahaan'),
 			'username' 			=> $this->input->post('username'),
 			'password' 			=> $this->input->post('password'),
-			'level_user' 		=> 'klien'
+			'level_user' 		=> $this->input->post('level_user')
 			);
 		$this->db->insert('tb_user',$data);
 	}

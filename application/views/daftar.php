@@ -30,6 +30,7 @@
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Password" name="password" type="password" value="">
                                 </div>
+                                <input type="hidden" name="level_user" value="klien">
                                 <!-- Change this to a button or input when using this as a form -->
 								<button type="submit" class="btn btn-lg btn-success btn-block">Register</button>
                             </fieldset>
