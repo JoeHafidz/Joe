@@ -19,16 +19,12 @@
 		<td><?php echo $order_so[$i]['tanggal_order']; ?></td>
 		<td><?php echo $order_so[$i]['crp']; ?></td>
 		<td>
-		<?php 
+		 <?php 
 			$status = $order_so[$i]['status_id']; 
 			if ($status == 1) {
 				echo "Belum Disetujui";
-			} if ($status == 2) {
-				echo "Silahkan Masukkan Jadwal";
-			} if ($status == 3) {
-				echo "Tidak Disetujui";
-			} if ($status == 4) {
-				echo "Jadwal Ada";
+			}  else { 
+				echo $order_so[$i]['status_order'];
 			} 
 		?>
 		</td>

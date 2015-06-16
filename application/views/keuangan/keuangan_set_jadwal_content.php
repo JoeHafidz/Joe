@@ -129,6 +129,7 @@
 
                 <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
                 <input type="hidden" name="status" value="4">
+                <input type="hidden" name="status_produksi" value="1">
                 <input type="hidden" name="so_id" value="<?php echo $detail_order[0]['idso']; ?>">
                 <button class="btn btn-outline btn-primary" type="submit">Save</button>
               </form> 

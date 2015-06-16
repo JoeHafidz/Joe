@@ -51,5 +51,13 @@ class mCreate extends CI_Model
 			);
 		$this->db->insert('tb_jadwal_tayang',$data);	
 	}
+	function save_file($name){
+		$data = array(
+			'so_id' 		=>$this->input->post('so_id'),
+			'filename' 		=> $name,
+			'user_id' 		=>$this->input->post('user_id')
+			);
+		$this->db->insert('tb_upload_so',$data);
+	}
 }
 ?>

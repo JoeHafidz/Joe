@@ -67,5 +67,19 @@ class mView extends CI_Model
         $result = $this->db->query($query,$parameter);
         return $result->result_array();  
     }
+    //Produksi
+    function lihat_jadwal_poduksi(){
+        $query = "SELECT *,tb_status_so.deskripsi AS status_order FROM tb_salesorder 
+                    LEFT JOIN tb_status_so ON tb_salesorder.status_id = tb_status_so.id_status_so
+                    WHERE status_produksi = 1 OR status_produksi = 2 ORDER BY idso DESC";
+        $result = $this->db->query($query);
+        return $result->result_array();     
+    }
+    function lihat_file_produksi($id){
+        $query = "SELECT * FROM tb_upload_so WHERE so_id = ?";
+        $parameter = array($id);
+        $result = $this->db->query($query,$parameter);
+        return $result->result_array();
+    }
 }
 ?>

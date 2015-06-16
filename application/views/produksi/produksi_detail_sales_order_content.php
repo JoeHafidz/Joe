@@ -2,18 +2,9 @@
 			<div class="row">
 				<div class="col-md-8">
 					<div class="panel panel-success">
-					<div class="panel-heading">Detail Order 
-						<div class="pull-right">
-						<a class="btn btn-info" title="Edit" href="<?php echo base_url(); ?>marketing/edit_order/<?php echo $detail_order[0]['idso']; ?>">
-							<i class="fa  fa-pencil "></i>
-						</a>
-						<a class="btn btn-danger" title="Hapus" href="<?php echo base_url(); ?>marketing/delete_sales_order/<?php echo $detail_order[0]['idso']; ?>">
-							<i class="fa fa-bitbucket"></i>
-						</a>
-						</div>
-					</div>
+					<div class="panel-heading">Detail Order</div>
 						<div class="panel-body">
-						<table class="table">
+							<table class="table">
 								<tr>
 									<td>No Order</td>
 									<td><?php echo $detail_order[0]['noso']; ?></td>
@@ -49,27 +40,32 @@
 							</table>
 						</div>
 						<div class="panel-footer">
-							<p><b>Status admin</b> : <?php $status = $detail_status[0]['status'];if ($status == 2) {echo "Setuju";} else {echo "Tidak Setuju";} ?></p>
-							<p><b>Note</b> : <?php echo $detail_status[0]['komen']; ?></p>
+							<?php if ($detail_order[0]['status_produksi'] == 1) { ?>
+								<?php echo form_open_multipart('produksi/upload_produksi');?>	
+								<input type="file" name="userfile[]">
+								<input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+								<input type="hidden" name="produksi_update" value="2">
+								<input type="hidden" name="status" value="5">
+								<input type="hidden" name="so_id" value="<?php echo $detail_order[0]['idso']; ?>">
+								<br>
+								<button class="btn btn-outline btn-primary" type="submit">Upload</button>
+								</form>
+							<?php } else { ?> 
+								<table class="table">
+									<tr>
+										<td>Nama File</td>
+										<td></td>
+										<td><?php echo $file_produksi[0]['filename']; ?></td>
+										<?php if ($detail_order[0]['status_produksi'] == 2 || $detail_order[0]['status_produksi'] == 4) { ?>
+											<td><a href="<?php echo base_url(); ?>produksi/delete_file/<?php echo $file_produksi[0]['id_upload_so']."upload".$detail_order[0]['idso']; ?>" class="btn btn-danger btn-circle" title="Hapus File"><i class="fa fa-trash-o"></i></a></td>
+										<?php } ?>
+									</tr>
+								</table>
+							<?php } ?>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
-				<div class="panel panel-success">
-					<div class="panel-heading">Status Order</div>
-						<div class="panel-body">
-							<p><?php echo $detail_order[0]['status_order']; ?></p>
-
-							<?php if ($detail_order[0]['status_produksi'] == 2 || $detail_order[0]['status_produksi'] == 3) { ?>
-							<a href="<?php echo base_url() ?>sounds/<?php echo $file_produksi[0]['filename']; ?>" class="btn btn-primary" download><i class="fa fa-play-circle"></i> Download </a>
-								<?php if ($detail_order[0]['status_id'] == 5) { ?>
-								Accept File ?
-								<a href="<?php echo base_url(); ?>produksi/accept_order/<?php echo $detail_order[0]['idso']; ?>" class="btn btn-success btn-circle" title="Accept"><i class="fa fa-thumbs-o-up"></i> </a>
-								<a href="<?php echo base_url(); ?>produksi/decline_order/<?php echo $detail_order[0]['idso']; ?>" class="btn btn-danger btn-circle" title="Tolak"><i class="fa fa-thumbs-o-down"></i> </a>
-								<?php } ?>
-								
-							<?php } ?>
-						</div></div>
 					<div class="panel panel-success">
 					<div class="panel-heading">Jadwal Siar</div>
 						<div class="panel-body">

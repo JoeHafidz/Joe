@@ -22,6 +22,14 @@ class mDelete extends CI_Model
 		$parameter = array($id);
 		return $result = $this->db->query($query,$parameter);	
 	}
+	function delete_file($id){
+		$query = "SELECT * FROM tb_upload_so WHERE id_upload_so = ?";
+		$parameter = array($id);
+		$result = $this->db->query($query,$parameter);
+		$end = $result->result_array();
+		$filelocation = './sounds/'.$end[0]['filename'];
+		unlink($filelocation);
+	}
 	
 }
 ?>

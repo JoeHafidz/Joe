@@ -32,7 +32,6 @@ class Keuangan extends CI_controller
 		$data['approve_status'] = $this->mView->approve_status($order);
 		$data['jadwal_tayang'] = $this->mView->lihat_jadwal($order);
 		$this->load->view('keuangan/keuangan_detail_sales_order',$data);
-
 	}
 	function konfirmasi(){
 		$order = $this->input->post('so_id');
