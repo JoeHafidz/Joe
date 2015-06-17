@@ -29,6 +29,7 @@ class Marketing extends CI_controller
 
 		$no_so = $this->mView->check_new_order();
 		$data['nomer_so'] = $no_so[0]['order_so'];
+		$data['list_klien'] = $this->mView->list_klien();
 		$this->load->view('marketing/marketing_tambah_order',$data);
 	}
 	function tambah_baru(){		
@@ -72,6 +73,26 @@ class Marketing extends CI_controller
 		$order = $this->uri->segment(3);
 		$this->mDelete->delete_sales_order($order);
 		redirect('marketing','refresh');
+	}
+	// User Marketing
+	function user(){		
+		$session_data = $this->session->userdata('login');
+		$data['user_login'] = $session_data;
+		$data['username'] = $session_data[0]['username'];
+		$data['leveluser'] = $session_data[0]['level_user'];
+
+		$data['show_user_data'] = $this->mView->show_user_data_marketing();
+		$this->load->view('marketing/user',$data);
+	}
+	function register_new(){
+		$this->mCreate->register_new();
+		redirect('marketing/user','refresh');
+	}
+
+	function delete(){
+		$idpost = $this->uri->segment(3);
+		$this->mDelete->delete_user($idpost);
+		redirect('marketing/user','refresh');
 	}
 	
 }

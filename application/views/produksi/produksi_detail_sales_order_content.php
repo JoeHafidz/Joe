@@ -15,7 +15,7 @@
 								</tr>
 								<tr>
 									<td>Pemberi Order</td>
-									<td><?php echo $detail_order[0]['pemberi_order']; ?></td>
+									<td><?php echo $detail_order[0]['klien_id']; ?></td>
 								</tr>
 								<tr>
 									<td>Perusahaan</td>

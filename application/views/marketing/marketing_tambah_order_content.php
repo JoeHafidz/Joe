@@ -14,17 +14,16 @@
 
   <div class="form-group">
     <label>Pemberi Order</label>
-    <input class="form-control" name="pemberi_order">
+    <select class="form-control" name="klien_id">
+      <?php for ($i=0; $i <count($list_klien) ; $i++) { ?>
+        <option value="<?php echo $list_klien[$i]['id_user']; ?>"><?php echo $list_klien[$i]['nama'].' - '.$list_klien[$i]['perusahaan']; ?></option>
+      <?php } ?>
+    </select>
   </div>
 
   <div class="form-group">
-    <label>Perusahaan</label>
-    <input class="form-control" name="perusahaan">
-  </div>
-
-  <div class="form-group">
-    <label>Alamat Perusahaan</label>
-    <input class="form-control" name="alamat_perusahaan">
+    <label>Nama Order</label>
+    <input class="form-control" name="nama_order">
   </div>
 
   <div class="form-group">

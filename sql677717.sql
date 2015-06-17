@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: sql6.freesqldatabase.com
--- Generation Time: Jun 14, 2015 at 07:58 AM
+-- Generation Time: Jun 17, 2015 at 06:47 PM
 -- Server version: 5.5.43-0ubuntu0.14.04.1
 -- PHP Version: 5.3.28
 
@@ -37,15 +37,6 @@ CREATE TABLE IF NOT EXISTS `tb_approve` (
   PRIMARY KEY (`id_approve`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
---
--- Dumping data for table `tb_approve`
---
-
-INSERT INTO `tb_approve` (`id_approve`, `so_id`, `status`, `komen`, `user_id`) VALUES
-(4, 7, 3, 'Tidak Setuju', 1),
-(5, 9, 3, 'Ga Setuju', 1),
-(6, 10, 2, 'Admin Setuju', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -71,20 +62,19 @@ CREATE TABLE IF NOT EXISTS `tb_salesorder` (
   `idso` int(11) NOT NULL AUTO_INCREMENT,
   `noso` varchar(50) NOT NULL,
   `tanggal_order` date NOT NULL,
-  `pemberi_order` varchar(50) NOT NULL,
-  `perusahaan` varchar(50) NOT NULL,
+  `klien_id` int(50) NOT NULL,
+  `nama_order` text NOT NULL,
   `crp` varchar(50) NOT NULL,
   `jenis_order` varchar(50) NOT NULL,
   `materi_siar` varchar(50) NOT NULL,
-  `tanggal_siar_id` int(11) NOT NULL,
-  `jumlah_siar` int(11) NOT NULL,
+  `status_penyiaran` int(11) NOT NULL,
+  `status_produksi` int(11) NOT NULL,
   `upload_so_id` int(11) NOT NULL,
   `approve` int(11) NOT NULL DEFAULT '1',
   `status_id` int(11) NOT NULL,
-  `alamat_perusahaan` text NOT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`idso`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -96,16 +86,21 @@ CREATE TABLE IF NOT EXISTS `tb_status_so` (
   `id_status_so` int(11) NOT NULL AUTO_INCREMENT,
   `deskripsi` varchar(50) NOT NULL,
   PRIMARY KEY (`id_status_so`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `tb_status_so`
 --
 
 INSERT INTO `tb_status_so` (`id_status_so`, `deskripsi`) VALUES
-(1, 'ada di Admin'),
-(2, 'Admin Setuju'),
-(3, 'Admin Tidak Setuju');
+(1, 'di Admin'),
+(2, 'Admin Setuju | Masukkan Jadwal'),
+(3, 'Admin Tidak Setuju'),
+(4, 'ada di Produksi'),
+(5, 'File sudah Diupload'),
+(6, 'Ada di Penyiaran'),
+(7, 'File Ditolak'),
+(8, 'Siaran Selesai');
 
 -- --------------------------------------------------------
 
@@ -115,7 +110,8 @@ INSERT INTO `tb_status_so` (`id_status_so`, `deskripsi`) VALUES
 
 CREATE TABLE IF NOT EXISTS `tb_tayang` (
   `id_tayang` int(11) NOT NULL AUTO_INCREMENT,
-  `jadwal_id` int(11) NOT NULL,
+  `tanggal_tayang` varchar(20) NOT NULL,
+  `jam_tayang` varchar(20) NOT NULL,
   `user_id` int(11) NOT NULL,
   `so_id` int(11) NOT NULL,
   PRIMARY KEY (`id_tayang`)
@@ -129,6 +125,7 @@ CREATE TABLE IF NOT EXISTS `tb_tayang` (
 
 CREATE TABLE IF NOT EXISTS `tb_upload_so` (
   `id_upload_so` int(11) NOT NULL AUTO_INCREMENT,
+  `so_id` int(11) NOT NULL,
   `filename` varchar(250) NOT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id_upload_so`)
@@ -149,20 +146,36 @@ CREATE TABLE IF NOT EXISTS `tb_user` (
   `password` varchar(50) NOT NULL,
   `level_user` varchar(50) NOT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `tb_user`
 --
 
 INSERT INTO `tb_user` (`id_user`, `nama`, `perusahaan`, `alamat_perusahaan`, `username`, `password`, `level_user`) VALUES
+(0, 'Rhema Radio', 'Rhema Radio', 'Rhema Radio', 'marketing', 'marketing', 'marketing'),
 (1, '', '', '', 'superadmin', 'superadmin', 'superadmin'),
-(2, '', '', '', 'hendi', 'hendi', 'marketing'),
-(3, '', '', '', 'ari', 'ari', 'keuangan'),
-(4, '', '', '', 'via', 'via', 'produksi'),
-(5, '', '', '', 'yuli', 'yuli', 'penyiaran'),
-(6, '', '', '', 'rossi', 'rossi', 'klien'),
-(7, '0', 'OzaCorp', 'AlamatOza', 'oza', 'oza', 'klien');
+(4, 'Rhema Radio', 'Rhema Radio', 'Rhema Radio', 'via', 'via', 'produksi'),
+(5, 'Rhema Radio', 'Rhema Radio', 'Rhema Radio', 'yuli', 'yuli', 'penyiaran'),
+(7, 'Oza', 'OzaCorp', 'AlamatOza', 'oza', 'oza', 'klien'),
+(8, 'Rossi', 'Yamaha', 'Jl. Pemuda No.112 Semarang', 'rossi46', 'rossi46', 'klien'),
+(9, 'joe', 'hagia corp', 'Permata Hijau', 'joe', 'joe', 'klien'),
+(11, 'Rhema Radio', 'Rhema Radio', 'Permata Hijau', 'ari', 'ari', 'keuangan');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_user_order`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_user_order` (
+  `id_user_order` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `status_id` int(11) NOT NULL,
+  `tanggal_order` date NOT NULL,
+  `note` text NOT NULL,
+  PRIMARY KEY (`id_user_order`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

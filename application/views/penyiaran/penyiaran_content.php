@@ -12,7 +12,7 @@
                                     <select class="form-control" name="so_id" id="aso_id">
                                     	<option>Pilih Order Iklan</option>
                                     	<?php for ($i=0; $i <count($order_iklan) ; $i++) { ?>
-                                    		<option value="<?php echo $order_iklan[$i]['idso']; ?>"><?php echo $order_iklan[$i]['noso'].' - '.$order_iklan[$i]['filename']; ?></option> 
+                                    		<option value="<?php echo $order_iklan[$i]['idso']; ?>"><?php echo $order_iklan[$i]['klien_id'].' - '.$order_iklan[$i]['nama_order'].' - '.$order_iklan[$i]['filename']; ?></option> 
                                     	<?php } ?>
                                     </select>
                                 </div>
@@ -27,6 +27,9 @@
                                 <div class="form-group">
                                     <select class="form-control" name="jam_tayang" id="jam_tayang">
                                     	<option value="0">Pilih Jam Tayang</option>
+                                    	<?php for ($i=0; $i <count($order_jadwal) ; $i++) { ?>
+                                    	<?php $pisah_jam = explode(",", $order_jadwal[$i]['waktu_jadwal']); for ($a=0; $a < count($pisah_jam) ; $a++) { ?>
+				               	 		<option value="<?php echo $pisah_jam[$a];?>"><?php echo $pisah_jam[$a]; ?></option>  <?php } } ?>
                                     </select>
                                 </div>
 								<button type="submit" class="btn btn-lg btn-success btn-block">Register</button>

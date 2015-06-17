@@ -24,7 +24,7 @@
 								</tr>
 								<tr>
 									<td>Pemberi Order</td>
-									<td><?php echo $detail_order[0]['pemberi_order']; ?></td>
+									<td><?php echo $detail_order[0]['klien_id']; ?></td>
 								</tr>
 								<tr>
 									<td>Perusahaan</td>
@@ -33,6 +33,10 @@
 								<tr>
 									<td>Alamat Perusahaan</td>
 									<td><?php echo $detail_order[0]['alamat_perusahaan']; ?></td>
+								</tr>
+								<tr>
+									<td>Nama Order</td>
+									<td><?php echo $detail_order[0]['nama_order']; ?></td>
 								</tr>
 								<tr>
 									<td>CRP</td>
@@ -49,8 +53,9 @@
 							</table>
 						</div>
 						<div class="panel-footer">
-							<p><b>Status admin</b> : <?php $status = $detail_status[0]['status'];if ($status == 2) {echo "Setuju";} else {echo "Tidak Setuju";} ?></p>
-							<p><b>Note</b> : <?php echo $detail_status[0]['komen']; ?></p>
+							<?php if (empty($detail_status[0])) { ?> <p><b>Status admin</b> : 
+							<?php } else { $status = $detail_status[0]['status'];if ($status == 2) {echo "Setuju";} else {echo "Tidak Setuju";}  ?></p>
+							<p><b>Note</b> : <?php echo $detail_status[0]['komen']; } ?></p>
 						</div>
 					</div>
 				</div>

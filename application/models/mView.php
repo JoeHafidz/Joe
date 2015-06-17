@@ -42,14 +42,18 @@ class mView extends CI_Model
 		return $result->result_array();
     }
     function semua_sales_order(){
-        $query =  "SELECT *,tb_status_so.deskripsi AS status_order FROM tb_salesorder 
-                    LEFT JOIN tb_status_so ON tb_salesorder.status_id = tb_status_so.id_status_so ORDER BY idso DESC";
+        $query =  "SELECT *,tb_status_so.deskripsi AS status_order, tb_user.nama as klien_id FROM tb_salesorder 
+                    LEFT JOIN tb_status_so ON tb_salesorder.status_id = tb_status_so.id_status_so 
+                    LEFT JOIN tb_user ON tb_salesorder.klien_id = tb_user.id_user 
+                    ORDER BY idso DESC";
         $result = $this->db->query($query);
         return $result->result_array();    
     }
     function detail_sales_order($id){
-        $query = "SELECT *,tb_status_so.deskripsi AS status_order FROM tb_salesorder 
-                    LEFT JOIN tb_status_so ON tb_salesorder.status_id = tb_status_so.id_status_so WHERE idso = ?";
+        $query = "SELECT *,tb_status_so.deskripsi AS status_order, tb_user.nama as klien_id FROM tb_salesorder 
+                    LEFT JOIN tb_status_so ON tb_salesorder.status_id = tb_status_so.id_status_so 
+                    LEFT JOIN tb_user ON tb_salesorder.klien_id = tb_user.id_user
+                    WHERE idso = ?";
         $parameter = array($id);
         $result = $this->db->query($query,$parameter);
         return $result->result_array();
@@ -60,6 +64,16 @@ class mView extends CI_Model
         $result = $this->db->query($query,$parameter);
         return $result->result_array();
     }
+    function list_klien(){
+        $query = "SELECT * FROM tb_user WHERE level_user = 'klien'";
+        $result = $this->db->query($query);
+        return $result->result_array();   
+    }
+    function show_user_data_marketing(){
+        $query = "SELECT * FROM tb_user WHERE level_user = 'klien'";
+        $result = $this->db->query($query);
+        return $result->result_array();   
+    }
     //keuangan
     function lihat_jadwal($id){
         $query = "SELECT * FROM tb_jadwal_tayang WHERE so_id = ?";
@@ -69,8 +83,9 @@ class mView extends CI_Model
     }
     //Produksi
     function lihat_jadwal_poduksi(){
-        $query = "SELECT *,tb_status_so.deskripsi AS status_order FROM tb_salesorder 
+        $query = "SELECT *,tb_status_so.deskripsi AS status_order, tb_user.nama as klien_id FROM tb_salesorder 
                     LEFT JOIN tb_status_so ON tb_salesorder.status_id = tb_status_so.id_status_so
+                    LEFT JOIN tb_user ON tb_salesorder.klien_id = tb_user.id_user
                     WHERE status_produksi > 0 ORDER BY idso DESC";
         $result = $this->db->query($query);
         return $result->result_array();     
@@ -88,8 +103,9 @@ class mView extends CI_Model
         return $result->result_array();     
     }
     function ambil_sales_order(){
-        $query = "SELECT * FROM tb_salesorder 
-                  LEFT JOIN tb_upload_so ON tb_salesorder.idso = tb_upload_so.so_id WHERE tb_salesorder.status_id > 3
+        $query = "SELECT *, tb_user.nama as klien_id FROM tb_salesorder 
+                LEFT JOIN tb_user ON tb_salesorder.klien_id = tb_user.id_user
+                LEFT JOIN tb_upload_so ON tb_salesorder.idso = tb_upload_so.so_id WHERE tb_salesorder.status_id > 3
                 ORDER BY idso DESC";
         $result = $this->db->query($query);
         return $result->result_array();        
@@ -97,6 +113,13 @@ class mView extends CI_Model
     function ambil_jadwal_order(){
         $query = "SELECT * FROM tb_jadwal_tayang";
         $result = $this->db->query($query);
+        return $result->result_array();           
+    }
+    // Klien
+    function klien_order($id){
+        $query = "SELECT * FROM tb_user_order WHERE user_id = ?";
+        $parameter = array($id);
+        $result = $this->db->query($query,$parameter);
         return $result->result_array();           
     }
 }

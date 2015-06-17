@@ -14,8 +14,12 @@
 									<td><?php $date=date_create($detail_order[0]['tanggal_order']); echo date_format($date,"d M Y"); ?></td>
 								</tr>
 								<tr>
+									<td>Nama Order</td>
+									<td><?php echo $detail_order[0]['nama_order']; ?></td>
+								</tr>
+								<tr>
 									<td>Pemberi Order</td>
-									<td><?php echo $detail_order[0]['pemberi_order']; ?></td>
+									<td><?php echo $detail_order[0]['klien_id']; ?></td>
 								</tr>
 								<tr>
 									<td>Perusahaan</td>

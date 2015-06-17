@@ -14,17 +14,12 @@
 
   <div class="form-group">
     <label>Pemberi Order</label>
-    <input class="form-control" name="pemberi_order" value="<?php echo $detail_order_edit[0]['pemberi_order']; ?>">
+    <input class="form-control" name="klien_id" value="<?php echo $detail_order_edit[0]['klien_id']; ?>" disabled>
   </div>
 
   <div class="form-group">
-    <label>Perusahaan</label>
-    <input class="form-control" name="perusahaan" value="<?php echo $detail_order_edit[0]['perusahaan']; ?>">
-  </div>
-
-  <div class="form-group">
-    <label>Alamat Perusahaan</label>
-    <input class="form-control" name="alamat_perusahaan" value="<?php echo $detail_order_edit[0]['alamat_perusahaan']; ?>">
+    <label>Nama Order</label>
+    <input class="form-control" name="nama_order" value="<?php echo $detail_order_edit[0]['nama_order']; ?>">
   </div>
 
   <div class="form-group">

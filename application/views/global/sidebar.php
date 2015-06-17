@@ -40,8 +40,19 @@
                             <a href="<?php echo base_url(); ?>main"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
 						<?php if ($leveluser == 'marketing' || $leveluser == 'superadmin') { ?>
-						<li>
+						<!-- <li>
                             <a href="<?php echo base_url(); ?>marketing"><i class="fa fa-maxcdn fa-fw"></i> Marketing</a>
+                        </li> -->
+                        <li>
+                            <a href="#"><i class="fa fa-maxcdn fa-fw"></i> Marketing<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li>
+                                    <a href="<?php echo base_url(); ?>marketing"><i class="fa fa-book fa-fw"></i> Order Marketing</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url(); ?>marketing/user"><i class="fa  fa-user-md fa-fw"></i> Users</a>
+                                </li>
+                            </ul>
                         </li>
 						<?php }  if ($leveluser == 'keuangan' || $leveluser == 'superadmin') { ?>
 						<li>
