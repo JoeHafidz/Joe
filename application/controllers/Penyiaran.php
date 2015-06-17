@@ -15,6 +15,9 @@ class Penyiaran extends CI_controller
 		$data['user_login'] = $session_data;
 		$data['username'] = $session_data[0]['username'];
 		$data['leveluser'] = $session_data[0]['level_user'];
+
+		$data['order_penyiaran'] = $this->mView->lihat_penyiaran();
+
 		$this->load->view('penyiaran/penyiaran',$data);
 	}
 }

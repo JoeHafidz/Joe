@@ -1,0 +1,22 @@
+status Order
+	1:diAdmin
+	2:Admin Setuju | Masukkan Jadwal
+	3:Admin Tidak Setuju
+	4:ada di Produksi
+	5: File Sudah Diupload
+	6: ada di Penyiaran
+	7: File Ditolak
+	8: Siaran Selesai
+Status Produksi
+	1 : ada diProduksi
+	2 : File Sudah Diupload
+	3 : File Disetujui
+	4 : File Ditolak
+Status Penyiaran
+	1 : ada di Penyiaran
+
+user 
+	1. hendi->marketing
+	2. ari	-> keuangan
+	3. via	->produksi
+	4. yuli -> penyiaran

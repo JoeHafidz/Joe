@@ -33,7 +33,7 @@
                                     </select>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-								<button type="submit" class="btn btn-lg btn-success btn-block">Register</button>
+								<button type="submit" class="btn btn-lg btn-success btn-block">Save</button>
                             </fieldset>
                         </form>
 	  </div>

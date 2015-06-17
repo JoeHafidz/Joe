@@ -50,6 +50,7 @@ class mUpdate extends CI_Model
 		$data = array(
 			'approve'				=> '5',
 			'status_id'				=> '6',
+			'status_penyiaran'		=> '1',
 			'status_produksi'		=> '3'
 			);
 		$this->db->where('idso', $id);
@@ -59,7 +60,7 @@ class mUpdate extends CI_Model
 		$data = array(
 			'approve'				=> '6',
 			'status_id'				=> '7',
-			'status_produksi'			=> '4'
+			'status_produksi'		=> '4'
 			);
 		$this->db->where('idso', $id);
 		$this->db->update('tb_salesorder', $data);
