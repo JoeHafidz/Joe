@@ -87,6 +87,17 @@ class mView extends CI_Model
         $result = $this->db->query($query);
         return $result->result_array();     
     }
-   
+    function ambil_sales_order(){
+        $query = "SELECT * FROM tb_salesorder 
+                  LEFT JOIN tb_upload_so ON tb_salesorder.idso = tb_upload_so.so_id WHERE tb_salesorder.status_id > 3
+                ORDER BY idso DESC";
+        $result = $this->db->query($query);
+        return $result->result_array();        
+    }
+    function ambil_jadwal_order(){
+        $query = "SELECT * FROM tb_jadwal_tayang";
+        $result = $this->db->query($query);
+        return $result->result_array();           
+    }
 }
 ?>

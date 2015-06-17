@@ -16,7 +16,7 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="<?php echo base_url(); ?>assets/js/sb-admin-2.js"></script>
-
+    <script src="<?php echo base_url(); ?>assets/js/jquery.chained.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/component/datepicker/bootstrap-datepicker.js"></script>
 
     <script type="text/javascript">
@@ -30,4 +30,9 @@
                 responsive: true
         });
     });
+    </script>
+    <script type="text/javascript">
+      $(function() {
+        $("#so_id").chained("#tanggal_tayang,#jam_tayang");
+      });
     </script>
