@@ -72,7 +72,20 @@ class mView extends CI_Model
     function show_user_data_marketing(){
         $query = "SELECT * FROM tb_user WHERE level_user = 'klien'";
         $result = $this->db->query($query);
-        return $result->result_array();   
+        return $result->result_array();
+    }
+    function count_followup(){
+        $query = "SELECT count(*) AS count_followup FROM tb_user_order WHERE status_id = 9";
+        $result = $this->db->query($query);
+        return $result->result_array();
+    }
+    function show_user_order(){
+        $query = "SELECT *,tb_status_so.deskripsi AS status_order, tb_user.nama as klien_id  FROM tb_user_order 
+                    LEFT JOIN tb_status_so ON tb_user_order.status_id = tb_status_so.id_status_so
+                    LEFT JOIN tb_user ON tb_user_order.user_id = tb_user.id_user
+                    WHERE status_id = 9 OR status_id = 10";
+        $result = $this->db->query($query);
+        return $result->result_array();
     }
     //keuangan
     function lihat_jadwal($id){
@@ -98,7 +111,9 @@ class mView extends CI_Model
     }
     // Penyiaran
     function lihat_penyiaran(){
-        $query = "SELECT * FROM tb_tayang";
+        $query = "SELECT *,tb_salesorder.nama_order AS so_id,tb_user.nama AS user_id FROM tb_tayang 
+                  LEFT JOIN tb_salesorder ON tb_salesorder.idso = tb_tayang.so_id
+                  LEFT JOIN tb_user ON tb_tayang.user_id = tb_user.id_user";
         $result = $this->db->query($query);
         return $result->result_array();     
     }
@@ -117,7 +132,9 @@ class mView extends CI_Model
     }
     // Klien
     function klien_order($id){
-        $query = "SELECT * FROM tb_user_order WHERE user_id = ?";
+        $query = "SELECT *,tb_status_so.deskripsi AS status_order FROM tb_user_order 
+                LEFT JOIN tb_status_so ON tb_user_order.status_id = tb_status_so.id_status_so
+                WHERE user_id = ?";
         $parameter = array($id);
         $result = $this->db->query($query,$parameter);
         return $result->result_array();           

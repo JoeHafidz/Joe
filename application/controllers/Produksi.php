@@ -15,6 +15,7 @@ class Produksi extends CI_controller
 		$data['user_login'] = $session_data;
 		$data['username'] = $session_data[0]['username'];
 		$data['leveluser'] = $session_data[0]['level_user'];
+		$data['followup'] = $this->mView->count_followup();
 
 		$data['order_produksi'] = $this->mView->lihat_jadwal_poduksi();
 		$this->load->view('produksi/produksi',$data);
@@ -25,6 +26,7 @@ class Produksi extends CI_controller
 		$data['username'] = $session_data[0]['username'];
 		$data['user_id'] = $session_data[0]['id_user'];
 		$data['leveluser'] = $session_data[0]['level_user'];
+		$data['followup'] = $this->mView->count_followup();
 
 		$order = $this->uri->segment(3);
 		$data['detail_order'] = $this->mView->detail_sales_order($order);

@@ -23,7 +23,7 @@
 
   <div class="form-group">
     <label>Nama Order</label>
-    <input class="form-control" name="nama_order">
+    <input class="form-control" name="nama_order" required>
   </div>
 
   <div class="form-group">

@@ -50,7 +50,10 @@
                                     <a href="<?php echo base_url(); ?>marketing"><i class="fa fa-book fa-fw"></i> Order Marketing</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url(); ?>marketing/user"><i class="fa  fa-user-md fa-fw"></i> Users</a>
+                                    <a href="<?php echo base_url(); ?>marketing/user_order"><i><?php echo $followup[0]['count_followup']; ?></i> New FollowUp</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url(); ?>marketing/user"><i class="fa fa-user-md fa-fw"></i> Users</a>
                                 </li>
                             </ul>
                         </li>

@@ -30,9 +30,13 @@
                 responsive: true
         });
     });
-    </script>
-    <script type="text/javascript">
-      $(function() {
-        $("#so_id").chained("#tanggal_tayang,#jam_tayang");
-      });
+     $(document).ready(function() {
+        $('#dataTableJam').DataTable({
+                responsive: true,
+                "searching": false,
+                "ordering": false,
+                "info":     false,
+                "pageLength": 5
+        });
+    });
     </script>

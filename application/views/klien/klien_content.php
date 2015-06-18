@@ -1,19 +1,19 @@
   	<br>
   	<!-- Input Post -->
 	<button class="btn btn-info" type="button" data-toggle="collapse" data-target="#inputCollapse" aria-expanded="false" aria-controls="inputCollapse">
-	   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+	   Request Iklan
 	</button>
 	<br>
 	<div class="collapse" id="inputCollapse">
 	  <div class="well">
-	    		  <form method="post" action="<?php echo base_url(); ?>user/register_new">
+	    		  <form method="post" action="<?php echo base_url(); ?>klien/request_new">
                             <fieldset>
                             	<div class="form-group">
                                     <input class="form-control"  value="<?php echo date("Y-m-d"); ?>" disabled>
     								<input type="hidden" name="tanggal_order" value="<?php echo date("Y-m-d"); ?>">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Note" name="note" type="text">
+                                    <input class="form-control" placeholder="Note" name="note" type="text" required>
                                 </div>
                                 <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
 								<button type="submit" class="btn btn-lg btn-success btn-block">Save</button>
@@ -39,9 +39,11 @@
 		  			<td><?php echo $no ?></td>
 				  	<td><?php echo $klien_order[$i]['tanggal_order']; ?></td>
 				  	<td><?php echo $klien_order[$i]['note']; ?></td>
-				  	<td><?php echo $klien_order[$i]['status']; ?></td>
+				  	<td><?php echo $klien_order[$i]['status_order']; ?></td>
 				  	<td>
+				  		<?php if ($klien_order[$i]['status_id'] == 9) { ?>
 				  		<a href="<?php echo site_url("klien/delete/". $klien_order[$i]["id_user_order"]); ?>" class="btn btn-default btn-sm glyphicon glyphicon-trash" role="button"></a>
+				  		<?php } ?>
 				  	</td>
 			  	</tr>
 		  	<?php $no++;} ?>

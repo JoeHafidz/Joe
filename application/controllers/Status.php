@@ -15,6 +15,7 @@ class Status extends CI_controller
 		$data['user_login'] = $session_data;
 		$data['username'] = $session_data[0]['username'];
 		$data['leveluser'] = $session_data[0]['level_user'];
+		$data['followup'] = $this->mView->count_followup();
 
 		$data['show_status'] = $this->mView->show_status_data();
 		$this->load->view('status/status',$data);
@@ -24,6 +25,7 @@ class Status extends CI_controller
 		$data['user_login'] = $session_data;
 		$data['username'] = $session_data[0]['username'];
 		$data['leveluser'] = $session_data[0]['level_user'];
+		$data['followup'] = $this->mView->count_followup();
 
 		$idstatus = $this->uri->segment(3);
 		$data['edit_status'] = $this->mView->status_edit($idstatus);

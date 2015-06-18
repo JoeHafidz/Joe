@@ -7,6 +7,8 @@ status Order
 	6: ada di Penyiaran
 	7: File Ditolak
 	8: Siaran Selesai
+	9: Tunggu diFollowUp
+	10: Done FollowUp
 Status Produksi
 	1 : ada diProduksi
 	2 : File Sudah Diupload
@@ -20,3 +22,6 @@ user
 	2. ari	-> keuangan
 	3. via	->produksi
 	4. yuli -> penyiaran
+
+085641122414
+B7738838

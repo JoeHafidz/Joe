@@ -16,19 +16,19 @@
                         <form method="post" action="<?php echo base_url(); ?>daftar/register_new">
                             <fieldset>
                             	<div class="form-group">
-                                    <input class="form-control" placeholder="Nama" name="nama" type="text" autofocus>
+                                    <input class="form-control" placeholder="Nama" name="nama" type="text" autofocus required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Perusahaan" name="perusahaan" type="text">
+                                    <input class="form-control" placeholder="Perusahaan" name="perusahaan" type="text" required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Alamat Perusahaan" name="alamat_perusahaan" type="text">
+                                    <input class="form-control" placeholder="Alamat Perusahaan" name="alamat_perusahaan" type="text" required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Username" name="username" type="text">
+                                    <input class="form-control" placeholder="Username" name="username" type="text" required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" value="" required>
                                 </div>
                                 <input type="hidden" name="level_user" value="klien">
                                 <!-- Change this to a button or input when using this as a form -->

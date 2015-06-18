@@ -16,7 +16,8 @@ class Marketing extends CI_controller
 		$data['username'] = $session_data[0]['username'];
 		$data['user_id'] = $session_data[0]['id_user'];
 		$data['leveluser'] = $session_data[0]['level_user'];
-		
+		$data['followup'] = $this->mView->count_followup();
+ 		
 		$data['order_so'] = $this->mView->semua_sales_order();
 		$this->load->view('marketing/marketing',$data);
 	}
@@ -26,6 +27,7 @@ class Marketing extends CI_controller
 		$data['username'] = $session_data[0]['username'];
 		$data['user_id'] = $session_data[0]['id_user'];
 		$data['leveluser'] = $session_data[0]['level_user'];
+		$data['followup'] = $this->mView->count_followup();
 
 		$no_so = $this->mView->check_new_order();
 		$data['nomer_so'] = $no_so[0]['order_so'];
@@ -42,6 +44,7 @@ class Marketing extends CI_controller
 		$data['username'] = $session_data[0]['username'];
 		$data['user_id'] = $session_data[0]['id_user'];
 		$data['leveluser'] = $session_data[0]['level_user'];
+		$data['followup'] = $this->mView->count_followup();
 
 		$order = $this->uri->segment(3);
 		$data['detail_order'] = $this->mView->detail_sales_order($order);
@@ -58,6 +61,7 @@ class Marketing extends CI_controller
 		$data['username'] = $session_data[0]['username'];
 		$data['user_id'] = $session_data[0]['id_user'];
 		$data['leveluser'] = $session_data[0]['level_user'];
+		$data['followup'] = $this->mView->count_followup();
 		
 		$order = $this->uri->segment(3);
 		$data['detail_order_edit'] = $this->mView->detail_sales_order($order);
@@ -80,6 +84,7 @@ class Marketing extends CI_controller
 		$data['user_login'] = $session_data;
 		$data['username'] = $session_data[0]['username'];
 		$data['leveluser'] = $session_data[0]['level_user'];
+		$data['followup'] = $this->mView->count_followup();
 
 		$data['show_user_data'] = $this->mView->show_user_data_marketing();
 		$this->load->view('marketing/user',$data);
@@ -94,6 +99,20 @@ class Marketing extends CI_controller
 		$this->mDelete->delete_user($idpost);
 		redirect('marketing/user','refresh');
 	}
-	
+	function user_order(){		
+		$session_data = $this->session->userdata('login');
+		$data['user_login'] = $session_data;
+		$data['username'] = $session_data[0]['username'];
+		$data['leveluser'] = $session_data[0]['level_user'];
+		$data['followup'] = $this->mView->count_followup();
+
+		$data['show_user_data'] = $this->mView->show_user_order();
+		$this->load->view('marketing/user_order',$data);
+	}
+	function approve_order(){
+		$order = $this->uri->segment(3);
+		$this->mUpdate->approve_order_user($order);
+		redirect('marketing/user_order','refresh');
+	}
 }
 ?>

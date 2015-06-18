@@ -7,7 +7,7 @@
                 <form method="post" action="<?php echo base_url(); ?>keuangan/simpan_jadwal">
                   <div class="form-group">
                     <label>Tanggal</label>
-                    <input class="form-control datepicker" name="tanggal_jadwal">
+                    <input class="form-control datepicker" name="tanggal_jadwal" required>
                   </div>
                   <div class="form-group">
                     <label>Waktu</label>
@@ -142,7 +142,7 @@
           <div class="panel panel-success">
           <div class="panel-heading">Jadwal Siar</div>
             <div class="panel-body">
-            <table class="table table-striped table-bordered table-hover">
+            <table class="table table-striped table-bordered table-hover" id="dataTableJam">
               <thead>
                       <tr>
                         <th>Tanggal</th>

@@ -9,6 +9,7 @@ class mCreate extends CI_Model
 			'nama'				=> $this->input->post('nama'),
 			'perusahaan' 		=> $this->input->post('perusahaan'),
 			'alamat_perusahaan'	=> $this->input->post('alamat_perusahaan'),
+			'telp'				=> $this->input->post('telp'),
 			'username' 			=> $this->input->post('username'),
 			'password' 			=> $this->input->post('password'),
 			'level_user' 		=> $this->input->post('level_user')
@@ -57,6 +58,26 @@ class mCreate extends CI_Model
 			'user_id' 		=>$this->input->post('user_id')
 			);
 		$this->db->insert('tb_upload_so',$data);
+	}
+	function request_iklan(){
+		$data = array(
+			'user_id'				=> $this->input->post('user_id'),
+			'note'					=> $this->input->post('note'),
+			'tanggal_order' 		=> $this->input->post('tanggal_order'),
+			'status_id' 			=> 9
+			);
+		$this->db->insert('tb_user_order',$data);
+	}
+	function tambah_penyiaran(){
+		$idso = $this->input->post('so_id');
+		$explode = explode('so_id', $idso);
+		$data = array(
+			'user_id'			=> $this->input->post('user_id'),
+			'tanggal_tayang'	=> $this->input->post('tanggal_tayang'),
+			'jam_tayang' 		=> $this->input->post('jam_tayang'),
+			'so_id' 			=> $explode[1]
+			);
+		$this->db->insert('tb_tayang',$data);
 	}
 }
 ?>

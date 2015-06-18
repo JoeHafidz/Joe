@@ -68,7 +68,7 @@
 					<div class="panel panel-success">
 					<div class="panel-heading">Jadwal Siar</div>
 						<div class="panel-body">
-							<table class="table table-striped table-bordered table-hover">
+							<table class="table table-striped table-bordered table-hover" id="dataTableJam">
 							<thead>
 				              <tr>
 				                <th>Tanggal</th>

@@ -16,11 +16,15 @@ class Klien extends CI_controller
 		$data['username'] = $session_data[0]['username'];
 		$data['user_id'] = $session_data[0]['id_user'];
 		$data['leveluser'] = $session_data[0]['level_user'];
+		$data['followup'] = $this->mView->count_followup();
 
 		$user_id = $session_data[0]['id_user'];
 		$data['klien_order'] = $this->mView->klien_order($user_id);
 		$this->load->view('klien/klien',$data);
 	}
-	
+	function request_new(){
+		$this->mCreate->request_iklan();
+		redirect('klien','refresh');
+	}
 }
 ?>

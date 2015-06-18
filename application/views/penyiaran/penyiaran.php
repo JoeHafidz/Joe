@@ -13,5 +13,11 @@
         </div>
 </div>
 <?php $this->load->view('global/footer'); ?>
+	<script type="text/javascript">
+      $(function() {
+         $("#tanggal_tayang").chained("#so_id");
+         $("#jam_tayang").chained("#tanggal_tayang");
+      });
+    </script>
 </body>
 </html>

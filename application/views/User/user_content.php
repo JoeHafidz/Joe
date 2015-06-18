@@ -9,19 +9,22 @@
 	    		  <form method="post" action="<?php echo base_url(); ?>user/register_new">
                             <fieldset>
                             	<div class="form-group">
-                                    <input class="form-control" placeholder="Nama" name="nama" type="text" autofocus>
+                                    <input class="form-control" placeholder="Nama" name="nama" type="text" autofocus required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Perusahaan" name="perusahaan" type="text">
+                                    <input class="form-control" placeholder="Perusahaan" name="perusahaan" type="text" required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Alamat Perusahaan" name="alamat_perusahaan" type="text">
+                                    <input class="form-control" placeholder="Alamat Perusahaan" name="alamat_perusahaan" type="text" required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Username" name="username" type="text">
+                                    <input class="form-control" placeholder="Telp" name="telp" type="text" required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    <input class="form-control" placeholder="Username" name="username" type="text" required>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" value="" required>
                                 </div>
                                 <div class="form-group">
                                     <select class="form-control" name="level_user">
@@ -46,6 +49,7 @@
 					<th>No</th>
 				  	<th>Nama</th>
 				  	<th>Perusahaan</th>
+				  	<th>Telp</th>
 				  	<th>User</th>
 				  	<th>Status</th>
 				  	<th>Action</th>
@@ -57,6 +61,7 @@
 		  			<td><?php echo $no ?></td>
 				  	<td><?php echo $show_user_data[$i]['nama']; ?></td>
 				  	<td><?php echo $show_user_data[$i]['perusahaan']; ?></td>
+				  	<td><?php echo $show_user_data[$i]['telp']; ?></td>
 				  	<td><?php echo $show_user_data[$i]['username']; ?></td>
 				  	<td><?php echo $show_user_data[$i]['level_user']; ?></td>
 				  	<td>

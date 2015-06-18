@@ -16,6 +16,7 @@ class Keuangan extends CI_controller
 		$data['username'] = $session_data[0]['username'];
 		$data['user_id'] = $session_data[0]['id_user'];
 		$data['leveluser'] = $session_data[0]['level_user'];
+		$data['followup'] = $this->mView->count_followup();
 		
 		$data['order_so'] = $this->mView->semua_sales_order();
 		$this->load->view('keuangan/keuangan',$data);
@@ -26,6 +27,7 @@ class Keuangan extends CI_controller
 		$data['username'] = $session_data[0]['username'];
 		$data['user_id'] = $session_data[0]['id_user'];
 		$data['leveluser'] = $session_data[0]['level_user'];
+		$data['followup'] = $this->mView->count_followup();
 
 		$order = $this->uri->segment(3);
 		$data['detail_order'] = $this->mView->detail_sales_order($order);
@@ -46,6 +48,7 @@ class Keuangan extends CI_controller
 		$data['username'] = $session_data[0]['username'];
 		$data['user_id'] = $session_data[0]['id_user'];
 		$data['leveluser'] = $session_data[0]['level_user'];
+		$data['followup'] = $this->mView->count_followup();
 
 		$order = $this->uri->segment(3);
 		$data['detail_order'] = $this->mView->detail_sales_order($order);

@@ -15,6 +15,7 @@ class User extends CI_controller
 		$data['user_login'] = $session_data;
 		$data['username'] = $session_data[0]['username'];
 		$data['leveluser'] = $session_data[0]['level_user'];
+		$data['followup'] = $this->mView->count_followup();
 
 		$data['show_user_data'] = $this->mView->show_user_data();
 		$this->load->view('user/user',$data);

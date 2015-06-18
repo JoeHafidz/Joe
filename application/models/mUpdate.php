@@ -61,6 +61,13 @@ class mUpdate extends CI_Model
 		$this->db->where('idso', $id);
 		$this->db->update('tb_salesorder', $data);
 	}
+	function approve_order_user($id){
+		$data = array(
+			'status_id'		=> '10'
+			);
+		$this->db->where('id_user_order', $id);
+		$this->db->update('tb_user_order', $data);
+	}
 	
 }
 ?>
