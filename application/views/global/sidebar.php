@@ -71,7 +71,7 @@
                         </li>
 						<?php }  if ($leveluser == 'klien' || $leveluser == 'superadmin') { ?>
 						<li>
-                            <a href="<?php echo base_url(); ?>klien"><i class="fa fa-user fa-fw"></i> Klien</a>
+                            <a href="<?php echo base_url(); ?>klien"><i class="fa fa-user fa-fw"></i> My Order</a>
                         </li>
 						<?php } if ($leveluser == 'superadmin') { ?>
                         <li>

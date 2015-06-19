@@ -24,7 +24,14 @@ class mUpdate extends CI_Model
 		$this->db->where('id_status_so', $this->input->post('id_status_so'));
 		$this->db->update('tb_status_so', $data);	
 	}
-
+	function perbarui_konfirmasi(){
+		$data = array(
+			'status'				=> $this->input->post('status'),
+			'komen'				=> $this->input->post('komen')
+			);
+		$this->db->where('id_approve', $this->input->post('id_approve'));
+		$this->db->update('tb_approve', $data);		
+	}
 	function change_approve(){
 		$data = array(
 			'status_id'				=> $this->input->post('status'),

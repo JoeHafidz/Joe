@@ -60,13 +60,37 @@
 								<button class="btn btn-outline btn-primary" type="submit">Save</button>
 							</form>
 							 <?php } else { $approve = $approve_status[0]['status']; if ($approve == 2) { echo "<b>"." : Setuju"."</b><br>"."Note : ".$approve_status[0]['komen'];?><br><a href="<?php echo base_url(); ?>keuangan/set_jadwal/<?php echo $detail_order[0]['idso'];?>" class="btn btn-outline btn-success">Set Jadwal</a> <?php } 
-							 else {echo "<b>"." : Tidak Setuju"."</b><br>"."Note : ".$approve_status[0]['komen'];}} ?>
+							 else {echo "<b>"." : Tidak Setuju"."</b><br>"."Note : ".$approve_status[0]['komen'];?>
+							 	<br>
+							 	<form method="post" action="<?php echo base_url(); ?>keuangan/perbarui_konfirmasi">
+								<select class="form-control" name="status">
+									<option value="2">Setuju</option>
+									<option value="3">Tidak Setuju</option>
+								</select>
+								<br>
+								<textarea class="form-control" name="komen"></textarea>
+								<br>
+								<input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+								<input type="hidden" name="id_approve" value="<?php echo $approve_status[0]['id_approve']; ?>">
+								<input type="hidden" name="so_id" value="<?php echo $detail_order[0]['idso']; ?>">
+								<button class="btn btn-outline btn-primary" type="submit">Save</button>
+							</form>
+							 <?php }} ?>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="panel panel-success">
-					<div class="panel-heading">Jadwal Siar</div>
+					<div class="panel-heading">Jadwal Siar 
+
+						<div class="pull-right">
+						<a class="btn btn-info btn-xs" title="Laporan Siaran" href="<?php echo base_url(); ?>keuangan/laporan_siar/<?php echo $detail_order[0]['idso']; ?>">
+							Laporan Siaran
+						</a>
+						</div>
+					
+					</div>
+
 						<div class="panel-body">
 							<table class="table table-striped table-bordered table-hover" id="dataTableJam">
 							<thead>

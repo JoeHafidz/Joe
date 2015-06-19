@@ -20,6 +20,7 @@ class Klien extends CI_controller
 
 		$user_id = $session_data[0]['id_user'];
 		$data['klien_order'] = $this->mView->klien_order($user_id);
+		$data['order_so'] = $this->mView->lihat_order_klien($user_id);
 		$this->load->view('klien/klien',$data);
 	}
 	function request_new(){

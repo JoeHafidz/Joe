@@ -41,7 +41,12 @@ class Keuangan extends CI_controller
 		$this->mUpdate->change_approve();
 		redirect('keuangan/order_detail/'.$order,'refresh');
 	}
-
+	function perbarui_konfirmasi(){
+		$order = $this->input->post('so_id');
+		$this->mUpdate->perbarui_konfirmasi();
+		$this->mUpdate->change_approve();
+		redirect('keuangan/order_detail/'.$order,'refresh');
+	}
 	function set_jadwal(){
 		$session_data = $this->session->userdata('login');
 		$data['user_login'] = $session_data;

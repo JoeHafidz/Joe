@@ -87,6 +87,12 @@ class mView extends CI_Model
         $result = $this->db->query($query);
         return $result->result_array();
     }
+    function konfrimasi_order(){
+        $query = "SELECT * FROM tb_approve WHERE so_id = ?";
+        $parameter = array($id);
+        $result = $this->db->query($query,$parameter);
+        return $result->result_array();   
+    }
     //keuangan
     function lihat_jadwal($id){
         $query = "SELECT * FROM tb_jadwal_tayang WHERE so_id = ?";
@@ -137,7 +143,16 @@ class mView extends CI_Model
                 WHERE user_id = ?";
         $parameter = array($id);
         $result = $this->db->query($query,$parameter);
-        return $result->result_array();           
+        return $result->result_array();
+    }
+    function lihat_order_klien($id){
+        $query = "SELECT *,tb_status_so.deskripsi AS status_order, tb_user.nama as klien_id FROM tb_salesorder 
+                    LEFT JOIN tb_status_so ON tb_salesorder.status_id = tb_status_so.id_status_so 
+                    LEFT JOIN tb_user ON tb_salesorder.klien_id = tb_user.id_user
+                    WHERE user_id = ?";
+        $parameter = array($id);
+        $result = $this->db->query($query,$parameter);
+        return $result->result_array();
     }
 }
 ?>

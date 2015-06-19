@@ -24,6 +24,9 @@
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Alamat Perusahaan" name="alamat_perusahaan" type="text" required>
                                 </div>
+                                    <div class="form-group">
+                                    <input class="form-control" placeholder="Telepon" name="telp" type="text" required>
+                                </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Username" name="username" type="text" required>
                                 </div>
