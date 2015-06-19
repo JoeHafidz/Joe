@@ -27,5 +27,22 @@ class Klien extends CI_controller
 		$this->mCreate->request_iklan();
 		redirect('klien','refresh');
 	}
+	function order_detail(){
+		$session_data = $this->session->userdata('login');
+		$data['user_login'] = $session_data;
+		$data['username'] = $session_data[0]['username'];
+		$data['user_id'] = $session_data[0]['id_user'];
+		$data['leveluser'] = $session_data[0]['level_user'];
+		$data['followup'] = $this->mView->count_followup();
+
+		$order = $this->uri->segment(3);
+		$data['detail_order'] = $this->mView->detail_sales_order($order);
+		$data['jadwal_tayang'] = $this->mView->lihat_jadwal($order);
+		$data['detail_status'] = $this->mView->lihat_status_order($order);
+		$data['file_produksi'] = $this->mView->lihat_file_produksi($order);
+		
+		$this->load->view('klien/klien_detail_sales_order',$data);
+
+	}
 }
 ?>

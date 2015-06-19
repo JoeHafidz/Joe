@@ -149,7 +149,7 @@ class mView extends CI_Model
         $query = "SELECT *,tb_status_so.deskripsi AS status_order, tb_user.nama as klien_id FROM tb_salesorder 
                     LEFT JOIN tb_status_so ON tb_salesorder.status_id = tb_status_so.id_status_so 
                     LEFT JOIN tb_user ON tb_salesorder.klien_id = tb_user.id_user
-                    WHERE user_id = ?";
+                    WHERE klien_id = ?";
         $parameter = array($id);
         $result = $this->db->query($query,$parameter);
         return $result->result_array();
