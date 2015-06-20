@@ -58,14 +58,10 @@ class Produksi extends CI_controller
             $this->mUpdate->produksi_update();
             redirect('produksi/order_detail/'.$order,'refresh');	
 	}
-	function accept_order(){
-		$order = $this->uri->segment(3);
-		$this->mUpdate->produksi_accept_order($order);
-		redirect('marketing/order_detail/'.$order,'refresh');
-	}
-	function decline_order(){
-		$order = $this->uri->segment(3);
-		$this->mUpdate->produksi_decline_order($order);
+	function konfrim_order_file(){
+		$order = $this->input->post('idso');
+		$this->mUpdate->produksi_file_order();
+		
 		redirect('marketing/order_detail/'.$order,'refresh');
 	}
 

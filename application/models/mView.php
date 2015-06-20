@@ -93,6 +93,7 @@ class mView extends CI_Model
         $result = $this->db->query($query,$parameter);
         return $result->result_array();   
     }
+
     //keuangan
     function lihat_jadwal($id){
         $query = "SELECT * FROM tb_jadwal_tayang WHERE so_id = ?";
@@ -100,6 +101,15 @@ class mView extends CI_Model
         $result = $this->db->query($query,$parameter);
         return $result->result_array();  
     }
+     function lihat_penyiaran_status($id){
+        $query = "SELECT *,tb_salesorder.nama_order AS so_id,tb_user.username AS user_id FROM tb_tayang 
+                  LEFT JOIN tb_salesorder ON tb_salesorder.idso = tb_tayang.so_id
+                  LEFT JOIN tb_user ON tb_tayang.user_id = tb_user.id_user WHERE idso = ?";
+        $parameter = array($id);
+        $result = $this->db->query($query,$parameter);
+        return $result->result_array();     
+    }
+
     //Produksi
     function lihat_jadwal_poduksi(){
         $query = "SELECT *,tb_status_so.deskripsi AS status_order, tb_user.nama as klien_id FROM tb_salesorder 
@@ -117,7 +127,7 @@ class mView extends CI_Model
     }
     // Penyiaran
     function lihat_penyiaran(){
-        $query = "SELECT *,tb_salesorder.nama_order AS so_id,tb_user.nama AS user_id FROM tb_tayang 
+        $query = "SELECT *,tb_salesorder.nama_order AS so_id,tb_user.username AS user_id FROM tb_tayang 
                   LEFT JOIN tb_salesorder ON tb_salesorder.idso = tb_tayang.so_id
                   LEFT JOIN tb_user ON tb_tayang.user_id = tb_user.id_user";
         $result = $this->db->query($query);

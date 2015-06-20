@@ -41,6 +41,16 @@ class mUpdate extends CI_Model
 		$this->db->where('idso', $this->input->post('so_id'));
 		$this->db->update('tb_salesorder', $data);
 	}
+	function change_approve_konfrim(){
+		$data = array(
+			'status_id'				=> $this->input->post('status'),
+			'approve'				=> $this->input->post('status'),
+			'crp'					=> $this->input->post('crp'),
+			'status_produksi'		=> $this->input->post('status_produksi')
+			);
+		$this->db->where('idso', $this->input->post('so_id'));
+		$this->db->update('tb_salesorder', $data);
+	}
 	function produksi_update(){
 		$data = array(
 			'status_id'				=> $this->input->post('status'),
@@ -49,25 +59,31 @@ class mUpdate extends CI_Model
 		$this->db->where('idso', $this->input->post('so_id'));
 		$this->db->update('tb_salesorder', $data);
 	}
-	function produksi_accept_order($id){
+	function produksi_file_order(){
+		$select = $this->input->post('file_konfirm');
+		if ($select == 3) {
+			$status_produksi = 3;
+			$status_id = 6;
+			$status_penyiaran = 1;
+			$approve = 5;
+		} else if($select == 4){
+			$status_produksi = 4;
+			$status_id = 7;
+			$approve = 6;
+			$status_penyiaran = 0;
+		}
+
 		$data = array(
-			'approve'				=> '5',
-			'status_id'				=> '6',
-			'status_penyiaran'		=> '1',
-			'status_produksi'		=> '3'
+			'approve'				=> $approve,
+			'status_id'				=> $status_id,
+			'status_penyiaran'		=> $status_penyiaran,
+			'status_produksi'		=> $status_produksi
 			);
-		$this->db->where('idso', $id);
+		$this->db->where('idso', $this->input->post('idso'));
 		$this->db->update('tb_salesorder', $data);
 	}
-	function produksi_decline_order($id){
-		$data = array(
-			'approve'				=> '6',
-			'status_id'				=> '7',
-			'status_produksi'		=> '4'
-			);
-		$this->db->where('idso', $id);
-		$this->db->update('tb_salesorder', $data);
-	}
+	
+	
 	function approve_order_user($id){
 		$data = array(
 			'status_id'		=> '10'

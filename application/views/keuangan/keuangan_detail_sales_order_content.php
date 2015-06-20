@@ -71,6 +71,7 @@
 								<textarea class="form-control" name="komen"></textarea>
 								<br>
 								<input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+								<input type="hidden" name="crp" value="Order Lama">
 								<input type="hidden" name="id_approve" value="<?php echo $approve_status[0]['id_approve']; ?>">
 								<input type="hidden" name="so_id" value="<?php echo $detail_order[0]['idso']; ?>">
 								<button class="btn btn-outline btn-primary" type="submit">Save</button>
@@ -82,13 +83,9 @@
 				<div class="col-md-4">
 					<div class="panel panel-success">
 					<div class="panel-heading">Jadwal Siar 
-
 						<div class="pull-right">
-						<a class="btn btn-info btn-xs" title="Laporan Siaran" href="<?php echo base_url(); ?>keuangan/laporan_siar/<?php echo $detail_order[0]['idso']; ?>">
-							Laporan Siaran
-						</a>
+						<a href="#" class="btn btn-info btn-xs" title="Laporan Siaran" onClick="MyWindow=window.open('<?php echo base_url(); ?>keuangan/laporan_siar/<?php echo $detail_order[0]['idso']; ?>','MyWindow','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,width=600,height=600'); return false;">Laporan Siaran</a>
 						</div>
-					
 					</div>
 
 						<div class="panel-body">

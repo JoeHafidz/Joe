@@ -45,9 +45,9 @@
 				<tr>
 					<th>No</th>
 				  	<th>Nama Order</th>
-				  	<th>Tanggal Order</th>
-				  	<th>Jam Order</th>
-				  	<th>User</th>
+				  	<th>Tanggal Siar</th>
+				  	<th>Jam Siar</th>
+				  	<th>Penyiar</th>
 				</tr>
 		  	</thead>
 		  	<tbody>

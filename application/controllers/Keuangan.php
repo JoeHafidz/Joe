@@ -44,7 +44,7 @@ class Keuangan extends CI_controller
 	function perbarui_konfirmasi(){
 		$order = $this->input->post('so_id');
 		$this->mUpdate->perbarui_konfirmasi();
-		$this->mUpdate->change_approve();
+		$this->mUpdate->change_approve_konfrim();
 		redirect('keuangan/order_detail/'.$order,'refresh');
 	}
 	function set_jadwal(){
@@ -73,6 +73,10 @@ class Keuangan extends CI_controller
 		$this->mDelete->delete_jadwal($explode_url[0]);
 		redirect('keuangan/set_jadwal/'.$explode_url[1],'refresh');
 	}
-	
+	function laporan_siar(){
+		$order = $this->uri->segment(3);
+		$data['order_penyiaran'] = $this->mView->lihat_penyiaran_status($order);
+		$this->load->view('keuangan/keuangan_laporan_siar',$data);
+	}
 }
 ?>
