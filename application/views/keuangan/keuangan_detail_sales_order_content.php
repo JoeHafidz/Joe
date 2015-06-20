@@ -2,7 +2,11 @@
 			<div class="row">
 				<div class="col-md-8">
 					<div class="panel panel-success">
-					<div class="panel-heading">Detail Order</div>
+					<div class="panel-heading">Detail Order
+						<div class="pull-right">
+						<a href="<?php echo base_url(); ?>keuangan/siaran_selesai/<?php echo $detail_order[0]['idso']; ?>" class="btn btn-info btn-xs" title="Order Selesai"><i class="fa fa-flag "></i> Siaran Selesai</a>
+						</div>
+					</div>
 						<div class="panel-body">
 							<table class="table">
 								<tr>

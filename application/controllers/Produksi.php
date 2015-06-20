@@ -61,9 +61,16 @@ class Produksi extends CI_controller
 	function konfrim_order_file(){
 		$order = $this->input->post('idso');
 		$this->mUpdate->produksi_file_order();
-		
+		$this->mUpdate->produksi_note();
 		redirect('marketing/order_detail/'.$order,'refresh');
 	}
-
+	function delete_file(){
+		$order = $this->uri->segment(3);
+		$explode_url = explode("upload", $order);
+		$this->mDelete->delete_file($explode_url[0]);
+		$this->mDelete->delete_file_database($explode_url[0]);
+		$this->mUpdate->produksi_delete_file($explode_url[1]);
+		redirect('produksi/order_detail/'.$explode_url[1],'refresh');
+	}
 }
 ?>

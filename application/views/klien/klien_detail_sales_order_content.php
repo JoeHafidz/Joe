@@ -59,13 +59,25 @@
 
 							<?php if ($detail_order[0]['status_produksi'] == 2 || $detail_order[0]['status_produksi'] == 3) { ?>
 							<a href="<?php echo base_url() ?>sounds/<?php echo $file_produksi[0]['filename']; ?>" class="btn btn-primary" download><i class="fa fa-play-circle"></i> Download </a>
+							<br>
 								<?php if ($detail_order[0]['status_id'] == 5) { ?>
 								Accept File ?
-								<a href="<?php echo base_url(); ?>produksi/accept_order/<?php echo $detail_order[0]['idso']; ?>" class="btn btn-success btn-circle" title="Accept"><i class="fa fa-thumbs-o-up"></i> </a>
-								<a href="<?php echo base_url(); ?>produksi/decline_order/<?php echo $detail_order[0]['idso']; ?>" class="btn btn-danger btn-circle" title="Tolak"><i class="fa fa-thumbs-o-down"></i> </a>
+								<br>
+								<form method="post" action="<?php echo base_url(); ?>produksi/konfrim_order_file">
+									<select class="form-control" name="file_konfirm">
+										<option value="3">Setuju</option>
+										<option value="4">Tidak Setuju</option>
+									</select>
+									<input type="hidden" name="idso" value="<?php echo $detail_order[0]['idso']; ?>">
+									<input type="hidden" name="id_upload_so" value="<?php echo $file_produksi[0]['id_upload_so']; ?>">
+									<input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+									<input type="text" name="komen" class="form-control" placeholder="Note :">
+									<button type="submit" class="btn btn-sm btn-info">Save</button>
+								</form>
+								<!-- <a href="<?php echo base_url(); ?>produksi/accept_order/<?php echo $detail_order[0]['idso']; ?>" class="btn btn-success btn-circle" title="Accept"><i class="fa fa-thumbs-o-up"></i> </a>
+								<a href="<?php echo base_url(); ?>produksi/decline_order/<?php echo $detail_order[0]['idso']; ?>" class="btn btn-danger btn-circle" title="Tolak"><i class="fa fa-thumbs-o-down"></i> </a> -->
 								<?php } ?>
-								
-							<?php } ?>
+							<?php } echo 'Note : '.$file_produksi[0]['komen']; ?>
 						</div></div>
 					<div class="panel panel-success">
 					<div class="panel-heading">Jadwal Siar

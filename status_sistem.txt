@@ -16,7 +16,7 @@ Status Produksi
 	4 : File Ditolak
 Status Penyiaran
 	1 : ada di Penyiaran
-
+	2 : Penyiaran Selesai
 user 
 	1. hendi->marketing
 	2. ari	-> keuangan

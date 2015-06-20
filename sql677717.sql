@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: sql6.freesqldatabase.com
--- Generation Time: Jun 18, 2015 at 09:58 AM
+-- Generation Time: Jun 20, 2015 at 07:32 PM
 -- Server version: 5.5.43-0ubuntu0.14.04.1
 -- PHP Version: 5.3.28
 
@@ -127,6 +127,7 @@ CREATE TABLE IF NOT EXISTS `tb_upload_so` (
   `id_upload_so` int(11) NOT NULL AUTO_INCREMENT,
   `so_id` int(11) NOT NULL,
   `filename` varchar(250) NOT NULL,
+  `komen` text NOT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id_upload_so`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
@@ -147,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `tb_user` (
   `password` varchar(50) NOT NULL,
   `level_user` varchar(50) NOT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
 
 --
 -- Dumping data for table `tb_user`
@@ -158,18 +159,7 @@ INSERT INTO `tb_user` (`id_user`, `nama`, `perusahaan`, `alamat_perusahaan`, `te
 (1, '', '', '', '', 'superadmin', 'superadmin', 'superadmin'),
 (4, 'Rhema Radio', 'Rhema Radio', 'Rhema Radio', '', 'via', 'via', 'produksi'),
 (5, 'Rhema Radio', 'Rhema Radio', 'Rhema Radio', '', 'yuli', 'yuli', 'penyiaran'),
-(8, 'Rossi', 'Yamaha', 'Jl. Pemuda No.112 Semarang', '', 'rossi46', 'rossi46', 'klien'),
-(9, 'joe', 'hagia corp', 'Permata Hijau', '', 'joe', 'joe', 'klien'),
-(11, 'Rhema Radio', 'Rhema Radio', 'Permata Hijau', '', 'ari', 'ari', 'keuangan'),
-(13, 'hagia', 'hagia corp', 'Permata Hijau', '', 'hagia', 'hagia', 'klien'),
-(14, 'Rei', 'rei', 'Handoko N120 Semarang', '', 'rei', 'rei', 'klien'),
-(17, 'Oza', 'Oza', 'Ozacorp', '085641122414', 'oza', 'oza', 'klien'),
-(18, '0', '0', '0', '', '0', '0', '0'),
-(19, '0', '0', '0', '', '0', '0', '0'),
-(20, '0', '0', '0', '', '0', '0', '0'),
-(21, 'Adi', 'Adi Corp', 'Adi Tsujipto', '', 'adi', 'adi', 'klien'),
-(22, '0', '0', '0', '', '0', '0', '0'),
-(23, '0', '0', '0', '', '0', '0', '0');
+(11, 'Rhema Radio', 'Rhema Radio', 'Permata Hijau', '', 'ari', 'ari', 'keuangan');
 
 -- --------------------------------------------------------
 

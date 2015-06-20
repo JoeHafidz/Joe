@@ -129,7 +129,7 @@ class mView extends CI_Model
     function lihat_penyiaran(){
         $query = "SELECT *,tb_salesorder.nama_order AS so_id,tb_user.username AS user_id FROM tb_tayang 
                   LEFT JOIN tb_salesorder ON tb_salesorder.idso = tb_tayang.so_id
-                  LEFT JOIN tb_user ON tb_tayang.user_id = tb_user.id_user";
+                  LEFT JOIN tb_user ON tb_tayang.user_id = tb_user.id_user ORDER BY id_tayang DESC";
         $result = $this->db->query($query);
         return $result->result_array();     
     }
@@ -137,6 +137,7 @@ class mView extends CI_Model
         $query = "SELECT *, tb_user.nama as klien_id FROM tb_salesorder 
                 LEFT JOIN tb_user ON tb_salesorder.klien_id = tb_user.id_user
                 LEFT JOIN tb_upload_so ON tb_salesorder.idso = tb_upload_so.so_id WHERE tb_salesorder.status_id > 3
+                AND status_penyiaran = 1
                 ORDER BY idso DESC";
         $result = $this->db->query($query);
         return $result->result_array();        

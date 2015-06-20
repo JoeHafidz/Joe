@@ -82,14 +82,34 @@ class mUpdate extends CI_Model
 		$this->db->where('idso', $this->input->post('idso'));
 		$this->db->update('tb_salesorder', $data);
 	}
-	
-	
+	function produksi_note(){
+		$data = array(
+			'komen'		=> $this->input->post('komen')
+			);
+		$this->db->where('id_upload_so', $this->input->post('id_upload_so'));
+		$this->db->update('tb_upload_so', $data);
+	}
+	function produksi_delete_file($id){
+		$data = array(
+			'status_produksi'		=> 1
+			);
+		$this->db->where('idso', $id);
+		$this->db->update('tb_salesorder', $data);
+	}
 	function approve_order_user($id){
 		$data = array(
 			'status_id'		=> '10'
 			);
 		$this->db->where('id_user_order', $id);
 		$this->db->update('tb_user_order', $data);
+	}
+	function siaran_selesai($id){
+		$data = array(
+			'status_penyiaran'		=> 2,
+			'status_id'				=> 8
+			);
+		$this->db->where('idso', $id);
+		$this->db->update('tb_salesorder', $data);
 	}
 	
 }

@@ -78,5 +78,10 @@ class Keuangan extends CI_controller
 		$data['order_penyiaran'] = $this->mView->lihat_penyiaran_status($order);
 		$this->load->view('keuangan/keuangan_laporan_siar',$data);
 	}
+	function siaran_selesai(){
+		$order = $this->uri->segment(3);
+		$this->mUpdate->siaran_selesai($order);
+		redirect('keuangan/order_detail/'.$order,'refresh');
+	}
 }
 ?>

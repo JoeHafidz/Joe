@@ -77,14 +77,15 @@
 										<option value="4">Tidak Setuju</option>
 									</select>
 									<input type="hidden" name="idso" value="<?php echo $detail_order[0]['idso']; ?>">
+									<input type="hidden" name="id_upload_so" value="<?php echo $file_produksi[0]['id_upload_so']; ?>">
 									<input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
-									<input type="text" name="komen" class="form-control">
+									<input type="text" name="komen" class="form-control" placeholder="Note :">
 									<button type="submit" class="btn btn-sm btn-info">Save</button>
 								</form>
 								<!-- <a href="<?php echo base_url(); ?>produksi/accept_order/<?php echo $detail_order[0]['idso']; ?>" class="btn btn-success btn-circle" title="Accept"><i class="fa fa-thumbs-o-up"></i> </a>
 								<a href="<?php echo base_url(); ?>produksi/decline_order/<?php echo $detail_order[0]['idso']; ?>" class="btn btn-danger btn-circle" title="Tolak"><i class="fa fa-thumbs-o-down"></i> </a> -->
 								<?php } ?>
-							<?php } ?>
+							<?php } echo 'Note : '.$file_produksi[0]['komen']; ?>
 						</div></div>
 					<div class="panel panel-success">
 					<div class="panel-heading">Jadwal Siar

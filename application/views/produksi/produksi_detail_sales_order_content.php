@@ -50,16 +50,21 @@
 								<br>
 								<button class="btn btn-outline btn-primary" type="submit">Upload</button>
 								</form>
-							<?php } else { ?> 
+							<?php } else if($detail_order[0]['status_produksi'] == 2 || $detail_order[0]['status_produksi'] == 4) { ?> 
 								<table class="table">
+									Nama File
+									<?php for ($a=0; $a <count($file_produksi) ; $a++) { ?>
 									<tr>
-										<td>Nama File</td>
 										<td></td>
-										<td><?php echo $file_produksi[0]['filename']; ?></td>
+										<td></td>
+										<td>
+											<?php echo $file_produksi[$a]['filename'].'<br>'; 
+											echo 'Note : '.$file_produksi[$a]['komen'];  ?></td>
 										<?php if ($detail_order[0]['status_produksi'] == 2 || $detail_order[0]['status_produksi'] == 4) { ?>
-											<td><a href="<?php echo base_url(); ?>produksi/delete_file/<?php echo $file_produksi[0]['id_upload_so']."upload".$detail_order[0]['idso']; ?>" class="btn btn-danger btn-circle" title="Hapus File"><i class="fa fa-trash-o"></i></a></td>
+											<td><a href="<?php echo base_url(); ?>produksi/delete_file/<?php echo $file_produksi[$a]['id_upload_so']."upload".$detail_order[0]['idso']; ?>" class="btn btn-danger btn-circle" title="Hapus File"><i class="fa fa-trash-o"></i></a></td>
 										<?php } ?>
 									</tr>
+									<?php } ?>
 								</table>
 							<?php } ?>
 						</div>

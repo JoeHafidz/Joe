@@ -22,6 +22,12 @@ class mDelete extends CI_Model
 		$parameter = array($id);
 		return $result = $this->db->query($query,$parameter);	
 	}
+	// produksi
+	function delete_file_database($id){
+		$query = "DELETE FROM tb_upload_so WHERE id_upload_so = ?";
+		$parameter = array($id);
+		return $result = $this->db->query($query,$parameter);	
+	}
 	function delete_file($id){
 		$query = "SELECT * FROM tb_upload_so WHERE id_upload_so = ?";
 		$parameter = array($id);
