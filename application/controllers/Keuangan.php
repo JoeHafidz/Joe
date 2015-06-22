@@ -16,9 +16,9 @@ class Keuangan extends CI_controller
 		$data['username'] = $session_data[0]['username'];
 		$data['user_id'] = $session_data[0]['id_user'];
 		$data['leveluser'] = $session_data[0]['level_user'];
-		$data['followup'] = $this->mView->count_followup();
+		$data['followup'] = $this->mview->count_followup();
 		
-		$data['order_so'] = $this->mView->semua_sales_order();
+		$data['order_so'] = $this->mview->semua_sales_order();
 		$this->load->view('keuangan/keuangan',$data);
 	}
 	function order_detail(){
@@ -27,24 +27,24 @@ class Keuangan extends CI_controller
 		$data['username'] = $session_data[0]['username'];
 		$data['user_id'] = $session_data[0]['id_user'];
 		$data['leveluser'] = $session_data[0]['level_user'];
-		$data['followup'] = $this->mView->count_followup();
+		$data['followup'] = $this->mview->count_followup();
 
 		$order = $this->uri->segment(3);
-		$data['detail_order'] = $this->mView->detail_sales_order($order);
-		$data['approve_status'] = $this->mView->approve_status($order);
-		$data['jadwal_tayang'] = $this->mView->lihat_jadwal($order);
+		$data['detail_order'] = $this->mview->detail_sales_order($order);
+		$data['approve_status'] = $this->mview->approve_status($order);
+		$data['jadwal_tayang'] = $this->mview->lihat_jadwal($order);
 		$this->load->view('keuangan/keuangan_detail_sales_order',$data);
 	}
 	function konfirmasi(){
 		$order = $this->input->post('so_id');
-		$this->mCreate->konfrimasi_order();
-		$this->mUpdate->change_approve();
+		$this->mcreate->konfrimasi_order();
+		$this->mupdate->change_approve();
 		redirect('keuangan/order_detail/'.$order,'refresh');
 	}
 	function perbarui_konfirmasi(){
 		$order = $this->input->post('so_id');
-		$this->mUpdate->perbarui_konfirmasi();
-		$this->mUpdate->change_approve_konfrim();
+		$this->mupdate->perbarui_konfirmasi();
+		$this->mupdate->change_approve_konfrim();
 		redirect('keuangan/order_detail/'.$order,'refresh');
 	}
 	function set_jadwal(){
@@ -53,34 +53,34 @@ class Keuangan extends CI_controller
 		$data['username'] = $session_data[0]['username'];
 		$data['user_id'] = $session_data[0]['id_user'];
 		$data['leveluser'] = $session_data[0]['level_user'];
-		$data['followup'] = $this->mView->count_followup();
+		$data['followup'] = $this->mview->count_followup();
 
 		$order = $this->uri->segment(3);
-		$data['detail_order'] = $this->mView->detail_sales_order($order);
-		$data['jadwal_tayang'] = $this->mView->lihat_jadwal($order);
+		$data['detail_order'] = $this->mview->detail_sales_order($order);
+		$data['jadwal_tayang'] = $this->mview->lihat_jadwal($order);
 		$this->load->view('keuangan/keuangan_set_jadwal',$data);
 		
 	}
 	function simpan_jadwal(){
 		$order = $this->input->post('so_id');
-		$this->mCreate->simpan_jadwal_tayang();
-		$this->mUpdate->change_approve();
+		$this->mcreate->simpan_jadwal_tayang();
+		$this->mupdate->change_approve();
 		redirect('keuangan/set_jadwal/'.$order,'refresh');
 	}
 	function delete_jadwal(){
 		$order = $this->uri->segment(3);
 		$explode_url = explode("jadwal", $order);
-		$this->mDelete->delete_jadwal($explode_url[0]);
+		$this->mdelete->delete_jadwal($explode_url[0]);
 		redirect('keuangan/set_jadwal/'.$explode_url[1],'refresh');
 	}
 	function laporan_siar(){
 		$order = $this->uri->segment(3);
-		$data['order_penyiaran'] = $this->mView->lihat_penyiaran_status($order);
+		$data['order_penyiaran'] = $this->mview->lihat_penyiaran_status($order);
 		$this->load->view('keuangan/keuangan_laporan_siar',$data);
 	}
 	function siaran_selesai(){
 		$order = $this->uri->segment(3);
-		$this->mUpdate->siaran_selesai($order);
+		$this->mupdate->siaran_selesai($order);
 		redirect('keuangan/order_detail/'.$order,'refresh');
 	}
 }

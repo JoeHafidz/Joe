@@ -15,9 +15,9 @@ class Produksi extends CI_controller
 		$data['user_login'] = $session_data;
 		$data['username'] = $session_data[0]['username'];
 		$data['leveluser'] = $session_data[0]['level_user'];
-		$data['followup'] = $this->mView->count_followup();
+		$data['followup'] = $this->mview->count_followup();
 
-		$data['order_produksi'] = $this->mView->lihat_jadwal_poduksi();
+		$data['order_produksi'] = $this->mview->lihat_jadwal_poduksi();
 		$this->load->view('produksi/produksi',$data);
 	}
 	function order_detail(){
@@ -26,12 +26,12 @@ class Produksi extends CI_controller
 		$data['username'] = $session_data[0]['username'];
 		$data['user_id'] = $session_data[0]['id_user'];
 		$data['leveluser'] = $session_data[0]['level_user'];
-		$data['followup'] = $this->mView->count_followup();
+		$data['followup'] = $this->mview->count_followup();
 
 		$order = $this->uri->segment(3);
-		$data['detail_order'] = $this->mView->detail_sales_order($order);
-		$data['jadwal_tayang'] = $this->mView->lihat_jadwal($order);
-		$data['file_produksi'] = $this->mView->lihat_file_produksi($order);
+		$data['detail_order'] = $this->mview->detail_sales_order($order);
+		$data['jadwal_tayang'] = $this->mview->lihat_jadwal($order);
+		$data['file_produksi'] = $this->mview->lihat_file_produksi($order);
 
 		$this->load->view('produksi/produksi_detail_sales_order',$data);
 	}
@@ -54,22 +54,22 @@ class Produksi extends CI_controller
 					$name_array[] = $data['file_name'];
 				}
 			$names= implode(',', $name_array);
-            $this->mCreate->save_file($names);
-            $this->mUpdate->produksi_update();
+            $this->mcreate->save_file($names);
+            $this->mupdate->produksi_update();
             redirect('produksi/order_detail/'.$order,'refresh');	
 	}
 	function konfrim_order_file(){
 		$order = $this->input->post('idso');
-		$this->mUpdate->produksi_file_order();
-		$this->mUpdate->produksi_note();
+		$this->mupdate->produksi_file_order();
+		$this->mupdate->produksi_note();
 		redirect('marketing/order_detail/'.$order,'refresh');
 	}
 	function delete_file(){
 		$order = $this->uri->segment(3);
 		$explode_url = explode("upload", $order);
-		$this->mDelete->delete_file($explode_url[0]);
-		$this->mDelete->delete_file_database($explode_url[0]);
-		$this->mUpdate->produksi_delete_file($explode_url[1]);
+		$this->mdelete->delete_file($explode_url[0]);
+		$this->mdelete->delete_file_database($explode_url[0]);
+		$this->mupdate->produksi_delete_file($explode_url[1]);
 		redirect('produksi/order_detail/'.$explode_url[1],'refresh');
 	}
 }

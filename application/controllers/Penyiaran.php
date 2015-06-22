@@ -16,16 +16,16 @@ class Penyiaran extends CI_controller
 		$data['username'] = $session_data[0]['username'];
 		$data['user_id'] = $session_data[0]['id_user'];
 		$data['leveluser'] = $session_data[0]['level_user'];
-		$data['followup'] = $this->mView->count_followup();
+		$data['followup'] = $this->mview->count_followup();
 
-		$data['order_iklan'] = $this->mView->ambil_sales_order();
-		$data['order_jadwal'] = $this->mView->ambil_jadwal_order();
-		$data['order_penyiaran'] = $this->mView->lihat_penyiaran();		
+		$data['order_iklan'] = $this->mview->ambil_sales_order();
+		$data['order_jadwal'] = $this->mview->ambil_jadwal_order();
+		$data['order_penyiaran'] = $this->mview->lihat_penyiaran();		
 
 		$this->load->view('penyiaran/penyiaran',$data);
 	}
 	function jadwal_siar(){
-		$this->mCreate->tambah_penyiaran();
+		$this->mcreate->tambah_penyiaran();
 		redirect('penyiaran','refresh');
 	}
 }

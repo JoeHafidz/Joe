@@ -20,7 +20,7 @@ class Login extends CI_controller
 		$post = $this->input->post();
 		$username = $post['username'];
 		$password = $post['password'];
-		$login = $this->mView->check_login($username, $password);
+		$login = $this->mview->check_login($username, $password);
 
 		if (!$login) {
 			$data['error'] = "Login Error Username or Password";

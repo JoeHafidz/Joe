@@ -109,7 +109,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array('mCreate','mView','mUpdate','mDelete');
+$autoload['model'] = array('mcreate','mview','mupdate','mdelete');
 
 
 /* End of file autoload.php */

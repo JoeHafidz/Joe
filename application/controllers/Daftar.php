@@ -17,7 +17,7 @@ class Daftar extends CI_controller
 		$this->load->view('daftar',$data);
 	}
 	function register_new(){
-		$this->mCreate->register_new();
+		$this->mcreate->register_new();
 		redirect('login','refresh');
 	}
 }
