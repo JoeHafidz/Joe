@@ -1,4 +1,4 @@
-<!--  
+ 
 
 <table class="table">
 	<tr>
@@ -11,4 +11,3 @@
 
 </table>
 
- -->
