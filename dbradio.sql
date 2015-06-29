@@ -2,10 +2,6 @@
 -- version 3.5.5
 -- http://www.phpmyadmin.net
 --
--- Host: sql6.freesqldatabase.com
--- Generation Time: Jun 20, 2015 at 07:32 PM
--- Server version: 5.5.43-0ubuntu0.14.04.1
--- PHP Version: 5.3.28
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,9 +13,9 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `sql677717`
+-- Database: `dbradio`
 --
-
+CREATE DATABASE 'dbradio';
 -- --------------------------------------------------------
 
 --
