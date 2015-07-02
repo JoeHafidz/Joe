@@ -84,8 +84,8 @@
 								</form>
 								<!-- <a href="<?php echo base_url(); ?>produksi/accept_order/<?php echo $detail_order[0]['idso']; ?>" class="btn btn-success btn-circle" title="Accept"><i class="fa fa-thumbs-o-up"></i> </a>
 								<a href="<?php echo base_url(); ?>produksi/decline_order/<?php echo $detail_order[0]['idso']; ?>" class="btn btn-danger btn-circle" title="Tolak"><i class="fa fa-thumbs-o-down"></i> </a> -->
+								<?php echo 'Note : '.$file_produksi[0]['komen'];  } ?>
 								<?php } ?>
-							<?php echo 'Note : '.$file_produksi[0]['komen'];  } ?>
 						</div></div>
 					<div class="panel panel-success">
 					<div class="panel-heading">Jadwal Siar
