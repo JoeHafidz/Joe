@@ -15,7 +15,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `dbradio`
 --
-CREATE DATABASE 'dbradio';
 -- --------------------------------------------------------
 
 --
