@@ -17,8 +17,20 @@ class Daftar extends CI_controller
 		$this->load->view('daftar',$data);
 	}
 	function register_new(){
-		$this->mcreate->register_new();
-		redirect('login','refresh');
+		$nama = $this->input->post('username');
+		$cek = $this->mview->check_new_user($nama);
+		if ($cek[0]['ADA'] > 0) {
+			session_start();
+			session_destroy();
+			$data['error'] = 'Anda Sudah Pernah daftar';
+			$this->load->view('daftar',$data);
+		} else {
+			$this->mcreate->register_new();
+			session_start();
+			session_destroy();
+			$data['error'] = 'Silahkan Login';
+			$this->load->view('login',$data);
+		}
 	}
 }
 ?>

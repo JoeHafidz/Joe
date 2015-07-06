@@ -162,7 +162,13 @@ class mView extends CI_Model
                     WHERE klien_id = ?";
         $parameter = array($id);
         $result = $this->db->query($query,$parameter);
-        return $result->result_array();
+        return $result->num_rows();
+    }
+    function check_new_user($username){
+        $query = "SELECT count(*) as ADA FROM tb_user WHERE username = ?";
+        $parameter = array($username);
+        $result = $this->db->query($query,$parameter);
+        return $result->result_array();  
     }
 }
 ?>

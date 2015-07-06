@@ -1,5 +1,6 @@
   	<br>
-  	<!-- Input Post -->
+  	<div class="alert alert-warning"><?php echo $error; ?></div>
+   	<!-- Input Post -->
 	<button class="btn btn-info" type="button" data-toggle="collapse" data-target="#inputCollapse" aria-expanded="false" aria-controls="inputCollapse">
 	   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 	</button>

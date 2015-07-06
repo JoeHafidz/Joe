@@ -40,6 +40,7 @@
                         </form>
                     </div>
                 </div>
+                <a href="<?php echo base_url(); ?>login" class="btn btn-info btn-circle" title="Kembali"><i class="fa fa-arrow-left"></i></a>
             </div>
         </div>
     </div>

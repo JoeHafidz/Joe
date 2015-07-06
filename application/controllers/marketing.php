@@ -85,13 +85,28 @@ class Marketing extends CI_controller
 		$data['username'] = $session_data[0]['username'];
 		$data['leveluser'] = $session_data[0]['level_user'];
 		$data['followup'] = $this->mview->count_followup();
+		$data['error'] = '';
 
 		$data['show_user_data'] = $this->mview->show_user_data_marketing();
 		$this->load->view('marketing/user',$data);
 	}
 	function register_new(){
-		$this->mcreate->register_new();
-		redirect('marketing/user','refresh');
+		$nama = $this->input->post('username');
+		$cek = $this->mview->check_new_user($nama);
+		if ($cek[0]['ADA'] > 0) {
+			$session_data = $this->session->userdata('login');
+			$data['user_login'] = $session_data;
+			$data['username'] = $session_data[0]['username'];
+			$data['leveluser'] = $session_data[0]['level_user'];
+			$data['followup'] = $this->mview->count_followup();
+			$data['error'] = 'Data Sudah ada';
+
+			$data['show_user_data'] = $this->mview->show_user_data_marketing();
+			$this->load->view('marketing/user',$data);
+		} else {
+			$this->mcreate->register_new();
+			redirect('marketing/user','refresh');
+		}
 	}
 
 	function delete(){
