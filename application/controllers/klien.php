@@ -44,5 +44,10 @@ class Klien extends CI_controller
 		$this->load->view('klien/klien_detail_sales_order',$data);
 
 	}
+	function delete(){
+		$order = $this->uri->segment(3);
+		$this->mdelete->delete_iklan($order);
+		redirect('klien','refresh');
+	}
 }
 ?>

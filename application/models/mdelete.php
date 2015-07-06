@@ -36,6 +36,11 @@ class mDelete extends CI_Model
 		$filelocation = './sounds/'.$end[0]['filename'];
 		unlink($filelocation);
 	}
-	
+	// delete iklan 
+	function delete_iklan($id){
+		$query = "DELETE FROM tb_user_order WHERE id_user_order = ?";
+		$parameter = array($id);
+		return $result = $this->db->query($query,$parameter);	
+	}
 }
 ?>
